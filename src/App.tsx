@@ -1,3 +1,5 @@
+import { Winning } from "./components/Winning";
+
 function App() {
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center bg-gray-200">
@@ -23,6 +25,7 @@ function App() {
           Next Question
         </button>
       </div>
+      <Winning />
     </div>
   );
 }

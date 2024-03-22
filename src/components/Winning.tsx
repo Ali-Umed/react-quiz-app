@@ -7,6 +7,8 @@ import {
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 
+// not work for this version 
+
 export const Fireworks = () => {
   const containerRef = useRef<Container>();
   const particlesRef = useRef<ParticlesType>();

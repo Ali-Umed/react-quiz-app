@@ -1,4 +1,4 @@
-import { Winning } from "./components/Winning";
+// import { Winning } from "./components/Winning";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
           How many salah do Muslims pray each day?
         </p>
         <ul className="w-full">
-          <li className="w-full py-2 px-4 bg-teal-100 rounded-lg mb-2 text-teal-700 text-center cursor-pointer transition-colors duration-300 hover:bg-teal-200">
+          <li className="w-full py-2 px-4 bg-red-100 rounded-lg mb-2 text-teal-700 text-center cursor-pointer transition-colors duration-300 hover:bg-teal-200">
             5
           </li>
           <li className="w-full py-2 px-4 bg-teal-100 rounded-lg mb-2 text-teal-700 text-center cursor-pointer transition-colors duration-300 hover:bg-teal-200">
@@ -25,7 +25,7 @@ function App() {
           Next Question
         </button>
       </div>
-      <Winning />
+      {/* <Winning /> */}
     </div>
   );
 }

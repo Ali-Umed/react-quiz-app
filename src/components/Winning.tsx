@@ -7,8 +7,6 @@ import {
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 
-// not work for this version 
-
 export const Fireworks = () => {
   const containerRef = useRef<Container>();
   const particlesRef = useRef<ParticlesType>();
@@ -18,7 +16,7 @@ export const Fireworks = () => {
       const interval = setInterval(() => {
         const particleCount = Math.floor(Math.random() * 100) + 50; // Randomize particle count for each explosion
         particlesRef.current.options.particles.number.value = particleCount;
-        particlesRef.current.refresh();
+        // particlesRef.current.refresh();
       }, 2000); // Interval between explosions (in milliseconds)
 
       return () => clearInterval(interval);

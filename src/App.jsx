@@ -1,9 +1,7 @@
-// import { Winning } from "./components/Winning";
-
 function App() {
   return (
-    <div className="w-screen h-screen flex flex-col justify-center items-center bg-gray-200">
-      <div className="flex flex-col items-center w-96 h-96 bg-white shadow-xl rounded-xl p-6">
+    <div className="w-screen h-screen flex flex-col justify-center items-center bg-slate-800 text-white">
+      <div className="flex flex-col items-center w-96 h-96 bg-slate-700 shadow-xl rounded-xl p-6">
         <p className="text-lg font-semibold mb-4">
           How many salah do Muslims pray each day?
         </p>
@@ -25,7 +23,6 @@ function App() {
           Next Question
         </button>
       </div>
-      {/* <Winning /> */}
     </div>
   );
 }

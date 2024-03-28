@@ -41,7 +41,7 @@ export default function NavBar({ isDayMode, toggleDayMode }) {
   return (
     <div>
       <nav
-        className={`${
+        className={` mb-8 ${
           isDayMode ? "bg-[#fff]" : "bg-[#00000059]"
         } border-gray-200`}
       >

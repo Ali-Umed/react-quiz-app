@@ -6,7 +6,7 @@ import Timer from "./Timer";
 
 export default function Questions() {
   return (
-    <section className="w-[35rem] flex flex-col gap-2 justify-center items-center py-5">
+    <section className="w-[35rem] flex flex-col gap-2 justify-center items-center py-5 mt-5">
       <header>
         <h2 className="text-xl text-slate-400">Islamic Questions</h2>
       </header>

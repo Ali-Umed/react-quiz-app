@@ -1,9 +1,11 @@
-import { GiHummingbird } from "react-icons/gi";
+import { AiOutlineQuestionCircle } from "react-icons/ai";
 
 export default function Footer({ isDayMode }) {
   return (
     <footer
-      className={`col-span-3   ${isDayMode ? "bg-[#fff]" : "bg-[#00000059]"}`}
+      className={`col-span-3  mt-8 ${
+        isDayMode ? "bg-[#fff]" : "bg-[#00000059]"
+      }`}
       id="footer"
     >
       <div className={` ${isDayMode ? "bg-white" : "bg-[#00000000]"}   pt-1`}>
@@ -26,7 +28,7 @@ export default function Footer({ isDayMode }) {
             >
               <div className="flex items-center  gap-6   py-3 md:block md:space-y-6 justify-center  md:py-0">
                 <div className="md:p-2 ">
-                  <GiHummingbird className="h-8 w-8 text-[#61b0e6]  mr-3" />
+                  <AiOutlineQuestionCircle className="h-8 w-8 text-[#61b0e6]  mr-3" />
                 </div>
               </div>
             </div>

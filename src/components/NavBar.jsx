@@ -2,7 +2,7 @@ import { FiMapPin, FiMoon, FiSun } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import { GiHummingbird } from "react-icons/gi";
 
-export default function NavBar({ isDayMode }) {
+export default function NavBar({ isDayMode, toggleDayMode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {

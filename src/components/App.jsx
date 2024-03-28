@@ -1,3 +1,4 @@
+import Coins from "./Coins";
 import { useState } from "react";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
@@ -10,6 +11,12 @@ function App() {
     setIsDayMode(!isDayMode);
   };
   return (
+
+    <div className="flex">
+    <div className="w-3/4">
+      <div className="w-full h-screen flex justify-center items-center bg-slate-900 text-white px-2 py-5">
+        <Questions />
+
     <div className="min-h-max flex justify-center items-center ">
       <div className="w-screen h-full justify-center     grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 items-center bg-slate-900 text-white px-2 py-5">
         <div className="col-span-3 ">
@@ -20,8 +27,13 @@ function App() {
           <Questions />
         </div>
         <Footer />
+
       </div>
     </div>
+    <div className="w-1/4 bg-slate-800">
+      <Coins />
+    </div>
+  </div>
   );
 }
 

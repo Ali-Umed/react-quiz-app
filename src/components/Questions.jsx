@@ -14,6 +14,8 @@ export default function Questions() {
       <main className="p-2 bg-slate-800 rounded-md mt-5 max-w-[35rem]">
         <QuestionsDetail />
       </main>
+     
+      
       <footer className="flex justify-between items-center w-full my-3">
         <div className="flex justify-center items-center gap-1 rounded-md bg-slate-800 p-[0.65rem]">
           <BiAlarm size={25} />

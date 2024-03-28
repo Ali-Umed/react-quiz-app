@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 import Questions from "./Questions";
+import SpinWeel from "./SpinWheel";
 
 function App() {
   const [isDayMode, setIsDayMode] = useState(true);
@@ -17,6 +18,11 @@ function App() {
         <div className=" col-span-3 place-self-center">
           <Questions />
         </div>
+
+        <div className=" w-24 h-24 col-span-3 place-self-center">
+          <SpinWeel />
+        </div>
+
         <Footer />
       </div>
     </div>

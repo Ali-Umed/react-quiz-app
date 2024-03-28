@@ -1,6 +1,6 @@
 import { FiMapPin, FiMoon, FiSun } from "react-icons/fi";
 import { useState, useEffect } from "react";
-import { GiHummingbird } from "react-icons/gi";
+import { AiOutlineQuestionCircle } from "react-icons/ai";
 
 export default function NavBar({ isDayMode, toggleDayMode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,7 +47,7 @@ export default function NavBar({ isDayMode, toggleDayMode }) {
       >
         <div className="max-w-screen-lg flex items-center justify-between mx-auto p-4">
           <a href="#" className="flex items-center" onClick={handleHomeClick}>
-            <GiHummingbird className="h-8 w-8 text-[#61b0e6] mr-3" />
+            <AiOutlineQuestionCircle className="h-8 w-8 text-[#61b0e6] mr-3" />
           </a>
 
           <div className="flex md:order-2">

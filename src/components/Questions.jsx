@@ -2,6 +2,7 @@ import React from "react";
 import QuestionsDetail from "./QuestionsDetail";
 import { GoChevronLeft, GoChevronRight } from "react-icons/go";
 import { BiAlarm } from "react-icons/bi";
+import Timer from "./Timer";
 
 export default function Questions() {
   return (
@@ -16,7 +17,7 @@ export default function Questions() {
       <footer className="flex justify-between items-center w-full my-3">
         <div className="flex justify-center items-center gap-1 rounded-md bg-slate-800 p-[0.65rem]">
           <BiAlarm size={25} />
-          <p>1:00</p>
+          <p><Timer /></p>
         </div>
         <div className="flex justify-center items-center gap-1 rounded-md bg-green-600 p-[0.65rem] hover:cursor-pointer hover:bg-green-500">
           <button>Next Question</button>

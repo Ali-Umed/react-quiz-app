@@ -34,7 +34,8 @@ function App() {
       <Coins />
     </div>
   </div>
-  );
-}
+  </div>
+  ; </div>
+)}
 
 export default App;

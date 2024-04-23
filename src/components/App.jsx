@@ -10,7 +10,7 @@ function App() {
   const toggleDayMode = () => {
     setIsDayMode(!isDayMode);
   };
-  return (
+
 
     <div className="flex">
     <div className="w-3/4">
@@ -31,7 +31,7 @@ function App() {
       </div>
     </div>
     <div className="w-1/4 bg-slate-800">
-      <Coins />
+
     </div>
   </div>
   </div>

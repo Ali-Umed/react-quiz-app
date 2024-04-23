@@ -1,4 +1,4 @@
-import { FiMapPin, FiMoon, FiSun } from "react-icons/fi";
+import { FiMoon, FiSun } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 

@@ -1,13 +1,31 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import Coins from "./Coins";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 import Questions from "./Questions";
 import SpinWeel from "./SpinWheel";
+import Loader from "./Loader";
+
+const initState = {
+  questions: [],
+  point: 0,
+  status: "loading",
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "dataRecevied":
+      return { ...state, questions: action.payload };
+  }
+}
 
 function App() {
-  const [isDayMode, setIsDayMode] = useState(true);
+  const [{ questions, points, status }, dispatch] = useReducer(
+    reducer,
+    initState
+  );
 
+  const [isDayMode, setIsDayMode] = useState(true);
   const toggleDayMode = () => {
     setIsDayMode(!isDayMode);
   };
@@ -20,7 +38,7 @@ function App() {
         </div>
         <div className="col-span-3 place-self-center">
           {/* <SpinWeel /> */}
-
+          {status == "loading" && <Loader />}
           <Questions />
         </div>
         <Footer />

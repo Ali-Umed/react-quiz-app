@@ -1,29 +1,41 @@
 import React, { useEffect, useReducer, useState } from "react";
-import Coins from "./Coins";
-import Footer from "./Footer";
-import NavBar from "./NavBar";
-import Questions from "./Questions";
-import SpinWeel from "./SpinWheel";
-import Loader from "./Loader";
+import Coins from "./components/Coins";
+import Footer from "./components/Footer";
+import NavBar from "./components/NavBar";
+import Questions from "./components/Questions";
+import SpinWeel from "./components/SpinWheel";
+import Loader from "./components/Loader";
+import StartScreen from "./components/StartScreen";
+
+const sec_per_questions = 30;
 
 const initState = {
   questions: [],
   point: 0,
   status: "loading",
+  sec_remaining: null,
 };
 
 function reducer(state, action) {
   switch (action.type) {
     case "dataReceived":
       return { ...state, questions: action.payload, status: "ready" };
+    case "start":
+      return {
+        ...state,
+        status: "active",
+        sec_remaining: state.questions.length * sec_per_questions,
+      };
   }
 }
 
 function App() {
-  const [{ questions, points, status }, dispatch] = useReducer(
+  const [{ questions, points, status, sec_remaining }, dispatch] = useReducer(
     reducer,
     initState
   );
+
+  const numQuestions = questions.length;
 
   const [isDayMode, setIsDayMode] = useState(true);
   const toggleDayMode = () => {
@@ -46,7 +58,10 @@ function App() {
         <div className="col-span-3 place-self-center">
           {/* <SpinWeel /> */}
           {status == "loading" && <Loader />}
-          {status == "ready" && <Questions />}
+          {status == "ready" && (
+            <StartScreen dispatch={dispatch} numQuestions={numQuestions} />
+          )}
+          {status == "active" && <Questions sec_remaining={sec_remaining} />}
         </div>
         <Footer />
         {/* <Coins /> */}

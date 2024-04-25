@@ -33,12 +33,20 @@ function reducer(state, action) {
         status: "active",
         sec_remaining: state.questions.length * sec_per_questions,
       };
+    case "newAnswer":
+      return {
+        ...state,
+        sec_remaining: state.questions.length * sec_per_questions,
+        answer: action.payload,
+      };
   }
 }
 
 function App() {
-  const [{ questions, points, status, sec_remaining, index }, dispatch] =
-    useReducer(reducer, initState);
+  const [
+    { questions, points, status, sec_remaining, index, answer },
+    dispatch,
+  ] = useReducer(reducer, initState);
 
   const numQuestions = questions.length;
 
@@ -69,6 +77,7 @@ function App() {
             question={questions[index]}
             sec_remaining={sec_remaining}
             dispatch={dispatch}
+            answer={answer}
           />
         )}
       </div>

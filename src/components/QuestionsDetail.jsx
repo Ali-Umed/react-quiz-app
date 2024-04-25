@@ -1,7 +1,7 @@
 import React from "react";
 import { HiCheckCircle } from "react-icons/hi";
 
-export default function QuestionsDetail({ question }) {
+export default function QuestionsDetail({ question, dispatch, answer }) {
   return (
     <div className="p-2">
       <h1 className="text-2xl text-slate-100 text-center mb-2">
@@ -11,9 +11,20 @@ export default function QuestionsDetail({ question }) {
 
       <section className="flex flex-col justify-center items-center gap-3">
         {question.options.map((option, index) => (
-          <div className="flex justify-between items-center p-3 w-full border-2 border-green-600 rounded-md mb-3">
-            <button className="">{option}</button>
-            <HiCheckCircle color="green" size={30} />
+          <div
+            className={`${
+              answer == question.correctOption ? "selected" : "unselected"
+            } 
+        `}
+          >
+            <button
+              className="flex justify-between w-full"
+              key={option}
+              onClick={() => dispatch({ type: "newAnswer", payload: index })}
+            >
+              {option}
+              <HiCheckCircle color="green" size={30} />
+            </button>
           </div>
         ))}
       </section>

@@ -4,7 +4,7 @@ import { GoChevronRight } from "react-icons/go";
 import { BiAlarm } from "react-icons/bi";
 import Timer from "./Timer";
 
-export default function Questions({ sec_remaining }) {
+export default function Questions({ sec_remaining, question }) {
   return (
     <section className="w-[35rem] flex flex-col gap-2 justify-center items-center py-5 mt-5">
       <header>
@@ -12,7 +12,7 @@ export default function Questions({ sec_remaining }) {
       </header>
 
       <main className="p-2 bg-slate-800 rounded-md mt-5 max-w-[35rem]">
-        <QuestionsDetail />
+        <QuestionsDetail question={question} />
       </main>
 
       <footer className="flex justify-between items-center w-full my-3">

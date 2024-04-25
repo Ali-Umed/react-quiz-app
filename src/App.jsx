@@ -6,6 +6,7 @@ import Questions from "./components/Questions";
 import SpinWeel from "./components/SpinWheel";
 import Loader from "./components/Loader";
 import StartScreen from "./components/StartScreen";
+import Error from "./components/Error";
 
 const sec_per_questions = 30;
 
@@ -14,12 +15,18 @@ const initState = {
   point: 0,
   status: "loading",
   sec_remaining: null,
+  index: 0,
 };
 
 function reducer(state, action) {
   switch (action.type) {
     case "dataReceived":
       return { ...state, questions: action.payload, status: "ready" };
+    case "dataFailed":
+      return {
+        ...state,
+        status: "error",
+      };
     case "start":
       return {
         ...state,
@@ -30,10 +37,8 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{ questions, points, status, sec_remaining }, dispatch] = useReducer(
-    reducer,
-    initState
-  );
+  const [{ questions, points, status, sec_remaining, index }, dispatch] =
+    useReducer(reducer, initState);
 
   const numQuestions = questions.length;
 
@@ -50,22 +55,26 @@ function App() {
   }, []);
 
   return (
-    <div className="flex">
-      <div className="w-screen h-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 items-center bg-slate-900 text-white px-2 py-5">
-        <div className="col-span-3">
-          <NavBar isDayMode={isDayMode} toggleDayMode={toggleDayMode} />
-        </div>
-        <div className="col-span-3 place-self-center">
-          {/* <SpinWeel /> */}
-          {status == "loading" && <Loader />}
-          {status == "ready" && (
-            <StartScreen dispatch={dispatch} numQuestions={numQuestions} />
-          )}
-          {status == "active" && <Questions sec_remaining={sec_remaining} />}
-        </div>
-        <Footer />
-        {/* <Coins /> */}
+    <div className="w-screen min-h-screen grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3  bg-slate-900 text-white px-2 ">
+      <div className="col-span-3">
+        <NavBar isDayMode={isDayMode} toggleDayMode={toggleDayMode} />
       </div>
+      <div className="col-span-3 place-self-center  min-h-max ">
+        {status == "loading" && <Loader />} {status == "error" && <Error />}
+        {status == "ready" && (
+          <StartScreen dispatch={dispatch} numQuestions={numQuestions} />
+        )}
+        {status == "active" && (
+          <Questions
+            question={questions[index]}
+            sec_remaining={sec_remaining}
+            dispatch={dispatch}
+          />
+        )}
+      </div>
+      <Footer />
+      {/* <SpinWeel /> */}
+      {/* <Coins /> */}
     </div>
   );
 }

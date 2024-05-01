@@ -1,15 +1,18 @@
 import { HiCheckCircle } from "react-icons/hi";
 
 export function Options({ question, answer, dispatch }) {
-  console.log(question.question);
-
+  const hasAnswer = answer != null;
   return (
     <section className="flex flex-col justify-center items-center gap-3">
       {question.options.map((option, index) => (
         <div
           key={option}
           className={`${
-            answer == question.correctOption ? "selected" : "unselected"
+            hasAnswer
+              ? index === question.correctOption
+                ? "selected"
+                : "unselected"
+              : "check"
           } 
         `}
         >

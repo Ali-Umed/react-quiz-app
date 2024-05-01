@@ -1,5 +1,5 @@
 import React from "react";
-import QuestionsDetail from "./QuestionsDetail";
+import QuestionsDetail from "./QuestionsDetail.1";
 import { GoChevronRight } from "react-icons/go";
 import { BiAlarm } from "react-icons/bi";
 import Timer from "./Timer";

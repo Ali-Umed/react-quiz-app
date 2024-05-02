@@ -10,25 +10,42 @@ export default function Questions({
   dispatch,
   answer,
   lastQuestion,
+  isDayMode,
 }) {
   return (
-    <section className="w-[35rem] flex flex-col gap-2 justify-center items-center py-5 mt-5">
+    <section
+      className={
+        "w-[35rem] flex flex-col gap-2 justify-center items-center py-5 mt-5"
+      }
+    >
       <header>
-        <h2 className="text-xl text-slate-400">Islamic Questions</h2>
+        <h2 className={`"text-xl  ${isDayMode ? "text-black" : "text-white"}`}>
+          {" "}
+          Quiz Game
+        </h2>
       </header>
 
-      <main className="p-2 bg-slate-800 rounded-md mt-5 max-w-[35rem]">
+      <main
+        className={`p-2 rounded-md mt-5 max-w-[35rem] ${
+          isDayMode ? "bg-[#fff]" : "bg-slate-800 "
+        }`}
+      >
         <QuestionsDetail
           question={question}
           dispatch={dispatch}
           answer={answer}
+          isDayMode={isDayMode}
         />
       </main>
 
       <footer className="flex justify-between items-center w-full my-3">
-        <div className="flex justify-center items-center gap-1 rounded-md bg-slate-800 p-[0.65rem]">
-          <BiAlarm size={25} />
-          <p>
+        <div
+          className={` flex justify-center items-center gap-1 rounded-md   p-[0.65rem] ${
+            isDayMode ? "bg-[#fff]" : "bg-slate-800 "
+          }`}
+        >
+          <BiAlarm size={25} color={` ${isDayMode ? "black" : "white"}`} />
+          <p className={`"text-xl  ${isDayMode ? "text-black" : "text-white"}`}>
             <Timer sec_remaining={sec_remaining} />
           </p>
         </div>

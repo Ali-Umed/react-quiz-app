@@ -39,6 +39,11 @@ function reducer(state, action) {
         sec_remaining: state.questions.length * sec_per_questions,
         answer: action.payload,
       };
+    case "nextQuestion":
+      return {
+        ...state,
+        index: state.index + 1,
+      };
   }
 }
 
@@ -48,6 +53,7 @@ function App() {
     dispatch,
   ] = useReducer(reducer, initState);
 
+  console.log(index);
   const numQuestions = questions.length;
 
   const [isDayMode, setIsDayMode] = useState(true);

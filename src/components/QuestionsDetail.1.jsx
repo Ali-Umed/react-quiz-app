@@ -3,6 +3,7 @@ import { HiCheckCircle } from "react-icons/hi";
 import { Options } from "./Options";
 
 export default function QuestionsDetail({ question, dispatch, answer }) {
+  console.log(question);
   return (
     <div className="p-2">
       <h1 className="text-2xl text-slate-100 text-center mb-2">

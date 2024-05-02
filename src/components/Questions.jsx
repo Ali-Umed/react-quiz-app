@@ -9,6 +9,7 @@ export default function Questions({
   question,
   dispatch,
   answer,
+  lastQuestion,
 }) {
   return (
     <section className="w-[35rem] flex flex-col gap-2 justify-center items-center py-5 mt-5">
@@ -31,12 +32,25 @@ export default function Questions({
             <Timer sec_remaining={sec_remaining} />
           </p>
         </div>
-        <div className="flex justify-center items-center gap-1 rounded-md bg-green-600 p-[0.65rem] hover:cursor-pointer hover:bg-green-500">
-          <button onClick={() => dispatch({ type: "nextQuestion" })}>
-            Next Question
-          </button>
-          <GoChevronRight size={25} />
-        </div>
+        {
+          <div className="flex justify-center items-center gap-1 rounded-md bg-green-600 p-[0.65rem] hover:cursor-pointer hover:bg-green-500">
+            {sec_remaining >= 0 && !lastQuestion ? (
+              <>
+                <button onClick={() => dispatch({ type: "nextQuestion" })}>
+                  Next Question
+                </button>
+                <GoChevronRight size={25} />
+              </>
+            ) : (
+              <>
+                <button onClick={() => dispatch({ type: "finish" })}>
+                  restart
+                </button>
+                <GoChevronRight size={25} />
+              </>
+            )}
+          </div>
+        }
       </footer>
     </section>
   );

@@ -45,6 +45,12 @@ function reducer(state, action) {
         index: state.index + 1,
         answer: null,
       };
+    case "finish":
+      return {
+        ...initState,
+        status: "ready",
+        question: state.questions,
+      };
   }
 }
 
@@ -84,6 +90,7 @@ function App() {
             sec_remaining={sec_remaining}
             dispatch={dispatch}
             answer={answer}
+            lastQuestion={index == numQuestions - 1}
           />
         )}
       </div>

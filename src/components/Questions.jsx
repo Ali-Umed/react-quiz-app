@@ -32,7 +32,9 @@ export default function Questions({
           </p>
         </div>
         <div className="flex justify-center items-center gap-1 rounded-md bg-green-600 p-[0.65rem] hover:cursor-pointer hover:bg-green-500">
-          <button>Next Question</button>
+          <button onClick={() => dispatch({ type: "nextQuestion" })}>
+            Next Question
+          </button>
           <GoChevronRight size={25} />
         </div>
       </footer>

@@ -17,7 +17,7 @@ export default function QuestionsDetail({
       }`}
     >
       <h1 className={`text-2xl  text-center mb-2  `}>
-        Question {index}/{numQuestions}
+        Question {index + 1}/{numQuestions}
       </h1>
       <div className=" text-center mb-4 mt-10 text-xl ">
         {question.question}

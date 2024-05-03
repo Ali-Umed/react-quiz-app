@@ -9,7 +9,7 @@ import StartScreen from "./components/StartScreen";
 import Error from "./components/Error";
 import jsonQuestions from "../data/questions.json";
 
-const sec_per_questions = 30;
+const sec_per_questions = 10;
 
 const initState = {
   questions: [],
@@ -37,7 +37,6 @@ function reducer(state, action) {
     case "newAnswer":
       return {
         ...state,
-        sec_remaining: state.questions.length * sec_per_questions,
         answer: action.payload,
       };
     case "nextQuestion":
@@ -46,6 +45,12 @@ function reducer(state, action) {
         index: state.index + 1,
         answer: null,
       };
+    case "tick":
+      return {
+        ...state,
+        sec_remaining: state.sec_remaining > 0 ? state.sec_remainin - 1 : 0,
+      };
+
     case "finish":
       return {
         ...initState,
@@ -66,7 +71,6 @@ function App() {
   const toggleDayMode = () => {
     setIsDayMode(!isDayMode);
   };
-
   useEffect(function () {
     fetch("http://localhost:8000/questions")
       .then((res) => res.json())

@@ -50,10 +50,10 @@ export default function Questions({
         >
           <BiAlarm size={25} color={` ${isDayMode ? "black" : "white"}`} />
           <p className={`"text-xl  ${isDayMode ? "text-black" : "text-white"}`}>
-            <Timer sec_remaining={sec_remaining} />
+            <Timer sec_remaining={sec_remaining} dispatch={dispatch} />
           </p>
         </div>
-        {sec_remaining >= 0 && !lastQuestion ? (
+        {!lastQuestion && sec_remaining >= 0 ? (
           <div
             onClick={() => dispatch({ type: "nextQuestion" })}
             className="flex justify-center items-center gap-1 rounded-md bg-green-600 p-[0.65rem] hover:cursor-pointer hover:bg-green-500"

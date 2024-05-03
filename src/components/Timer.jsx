@@ -1,14 +1,21 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
-export default function Timer({ sec_remaining }) {
-  const [timer, setTimer] = useState(sec_remaining);
-
+let mins = 0;
+let seconds = 0;
+export default function Timer({ sec_remaining, dispatch }) {
+  mins = Math.floor(sec_remaining / 60);
+  seconds = sec_remaining % 60;
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimer((prevSecond) => prevSecond - 1);
+      dispatch({ type: "tick" });
     }, 1000);
     return () => clearInterval(interval);
-  }, []);
-
-  return timer;
+  }, [dispatch]);
+  return (
+    <div>
+      {mins < 10 && "0"}
+      {mins}: {seconds < 10 && "0"}
+      {seconds}
+    </div>
+  );
 }

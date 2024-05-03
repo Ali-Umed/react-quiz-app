@@ -11,11 +11,15 @@ export default function QuestionsDetail({
   index,
 }) {
   return (
-    <div className={`"p-2"  ${isDayMode ? "text-black" : "text-white"}`}>
+    <div
+      className={`" max-w-[33rem] min-w-[33rem] min-h-[450px]  text-center "  ${
+        isDayMode ? "text-black" : "text-white"
+      }`}
+    >
       <h1 className={`text-2xl  text-center mb-2  `}>
         Question {index}/{numQuestions}
       </h1>
-      <div className=" text-center mb-4 mt-10 text-xl flex  flex-nowrap">
+      <div className=" text-center mb-4 mt-10 text-xl ">
         {question.question}
       </div>
 

@@ -3,7 +3,7 @@ import { AiOutlineQuestionCircle } from "react-icons/ai";
 export default function Footer({ isDayMode }) {
   return (
     <footer
-      className={`col-span-3  mt-8 ${
+      className={`col-span-3 h-20  mt-8 fixed bottom-0 w-full ${
         isDayMode ? "bg-[#fff]" : "bg-[#00000059]"
       }`}
       id="footer"

@@ -76,7 +76,7 @@ function App() {
 
   return (
     <div
-      className={`"w-screen min-h-screen grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3   text-white px-2 " ${
+      className={`"w-screen min-h-screen grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3   text-white  " ${
         isDayMode ? "bg-cyan-50" : "bg-slate-900"
       }`}
     >

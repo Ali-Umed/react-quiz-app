@@ -9,9 +9,13 @@ export function Options({ question, answer, dispatch }) {
           key={option}
           className={`${
             hasAnswer
-              ? index === question.correctOption
+              ? (answer == index) & (index === question.correctOption)
                 ? "selected"
-                : "unselected"
+                : answer !== question.correctOption && answer == index
+                ? "unselected"
+                : index === question.correctOption
+                ? "selected"
+                : "check"
               : "check"
           } 
         `}
@@ -20,6 +24,7 @@ export function Options({ question, answer, dispatch }) {
             className="flex justify-between w-full"
             key={option}
             onClick={() => dispatch({ type: "newAnswer", payload: index })}
+            disabled={hasAnswer}
           >
             {option}
             <HiCheckCircle color="green" size={30} />

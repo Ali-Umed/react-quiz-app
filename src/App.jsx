@@ -80,7 +80,7 @@ function App() {
         isDayMode ? "bg-cyan-50" : "bg-slate-900"
       }`}
     >
-      <div className="col-span-3">
+      <div className="col-span-3 fixed top-0 w-full">
         <NavBar isDayMode={isDayMode} toggleDayMode={toggleDayMode} />
       </div>
       <div className={`col-span-3 place-self-center  min-h-max  `}>

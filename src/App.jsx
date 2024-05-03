@@ -72,7 +72,7 @@ function App() {
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataReceived", payload: data }))
       .catch((err) =>
-        dispatch({ type: "dataReceived", payload: jsonQuestions })
+        dispatch({ type: "dataReceived", payload: jsonQuestions.questions })
       );
   }, []);
 

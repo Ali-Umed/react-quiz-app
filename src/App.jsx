@@ -7,6 +7,7 @@ import SpinWeel from "./components/SpinWheel";
 import Loader from "./components/Loader";
 import StartScreen from "./components/StartScreen";
 import Error from "./components/Error";
+import jsonQuestions from "../data/questions.json";
 
 const sec_per_questions = 30;
 
@@ -70,7 +71,9 @@ function App() {
     fetch("http://localhost:8000/questions")
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataReceived", payload: data }))
-      .catch((err) => dispatch({ type: "dataFailed" }));
+      .catch((err) =>
+        dispatch({ type: "dataReceived", payload: jsonQuestions })
+      );
   }, []);
 
   return (

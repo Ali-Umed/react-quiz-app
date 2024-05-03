@@ -11,11 +11,13 @@ export default function Questions({
   answer,
   lastQuestion,
   isDayMode,
+  index,
+  numQuestions,
 }) {
   return (
     <section
       className={
-        "w-[35rem] flex flex-col gap-2 justify-center items-center py-5 mt-5"
+        "min-w-[35rem] flex flex-col gap-2 justify-center items-center py-5 mt-5"
       }
     >
       <header>
@@ -26,7 +28,7 @@ export default function Questions({
       </header>
 
       <main
-        className={`p-2 rounded-md mt-5 max-w-[35rem] ${
+        className={`p-2 rounded-md mt-5 min-w-[35rem] ${
           isDayMode ? "bg-[#fff]" : "bg-slate-800 "
         }`}
       >
@@ -35,6 +37,8 @@ export default function Questions({
           dispatch={dispatch}
           answer={answer}
           isDayMode={isDayMode}
+          numQuestions={numQuestions}
+          index={index}
         />
       </main>
 

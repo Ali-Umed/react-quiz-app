@@ -49,7 +49,7 @@ function reducer(state, action) {
       return {
         ...initState,
         status: "ready",
-        question: state.questions,
+        questions: state.questions,
       };
   }
 }
@@ -59,7 +59,6 @@ function App() {
     { questions, points, status, sec_remaining, index, answer },
     dispatch,
   ] = useReducer(reducer, initState);
-
   const numQuestions = questions.length;
 
   const [isDayMode, setIsDayMode] = useState(true);
@@ -99,6 +98,8 @@ function App() {
             dispatch={dispatch}
             answer={answer}
             lastQuestion={index == numQuestions - 1}
+            numQuestions={numQuestions}
+            index={index}
             isDayMode={isDayMode}
           />
         )}

@@ -13,9 +13,9 @@ const sec_per_questions = 10;
 
 const initState = {
   questions: [],
-  point: 0,
+  points: 0,
   status: "loading",
-  sec_remaining: null,
+  sec_remaining: 0,
   index: 0,
 };
 
@@ -38,6 +38,10 @@ function reducer(state, action) {
       return {
         ...state,
         answer: action.payload,
+        points:
+          action.payload == state.questions[state.index].correctOption
+            ? state.points + state.questions[state.index].points
+            : state.points,
       };
     case "nextQuestion":
       return {
@@ -48,9 +52,8 @@ function reducer(state, action) {
     case "tick":
       return {
         ...state,
-        sec_remaining: state.sec_remaining > 0 ? state.sec_remainin - 1 : 0,
+        sec_remaining: state.sec_remaining > 0 ? state.sec_remaining - 1 : 0,
       };
-
     case "finish":
       return {
         ...initState,
@@ -59,14 +62,12 @@ function reducer(state, action) {
       };
   }
 }
-
 function App() {
   const [
     { questions, points, status, sec_remaining, index, answer },
     dispatch,
   ] = useReducer(reducer, initState);
   const numQuestions = questions.length;
-
   const [isDayMode, setIsDayMode] = useState(true);
   const toggleDayMode = () => {
     setIsDayMode(!isDayMode);
@@ -86,9 +87,7 @@ function App() {
         isDayMode ? "bg-cyan-50" : "bg-slate-900"
       }`}
     >
-      <div className="col-span-3 fixed top-0 w-full">
-        <NavBar isDayMode={isDayMode} toggleDayMode={toggleDayMode} />
-      </div>
+      <NavBar isDayMode={isDayMode} toggleDayMode={toggleDayMode} />
       <div className={`col-span-3 place-self-center  min-h-max  `}>
         {status == "loading" && <Loader />} {status == "error" && <Error />}
         {status == "ready" && (
@@ -108,6 +107,7 @@ function App() {
             numQuestions={numQuestions}
             index={index}
             isDayMode={isDayMode}
+            points={points}
           />
         )}
       </div>

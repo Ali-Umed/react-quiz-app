@@ -2,6 +2,7 @@ import React from "react";
 import QuestionsDetail from "./QuestionsDetail.1";
 import { GoChevronRight } from "react-icons/go";
 import { BiAlarm } from "react-icons/bi";
+import { BiDollar } from "react-icons/bi";
 import Timer from "./Timer";
 
 export default function Questions({
@@ -13,6 +14,7 @@ export default function Questions({
   isDayMode,
   index,
   numQuestions,
+  points,
 }) {
   return (
     <section
@@ -49,9 +51,19 @@ export default function Questions({
           }`}
         >
           <BiAlarm size={25} color={` ${isDayMode ? "black" : "white"}`} />
-          <p className={`"text-xl  ${isDayMode ? "text-black" : "text-white"}`}>
-            <Timer sec_remaining={sec_remaining} dispatch={dispatch} />
-          </p>
+          <Timer
+            sec_remaining={sec_remaining}
+            dispatch={dispatch}
+            isDayMode={isDayMode}
+          />
+        </div>
+        <div
+          className={`"text-5xl font-semibold  p-2 rounded-lg flex text-center items-center ${
+            isDayMode ? "text-black bg-white" : "text-white bg-black"
+          }`}
+        >
+          <BiDollar />
+          {points}
         </div>
         {!lastQuestion && sec_remaining >= 0 ? (
           <div

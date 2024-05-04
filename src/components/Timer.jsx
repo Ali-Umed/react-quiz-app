@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 let mins = 0;
 let seconds = 0;
-export default function Timer({ sec_remaining, dispatch }) {
+export default function Timer({ sec_remaining, dispatch, isDayMode }) {
   mins = Math.floor(sec_remaining / 60);
   seconds = sec_remaining % 60;
   useEffect(() => {
@@ -12,7 +12,7 @@ export default function Timer({ sec_remaining, dispatch }) {
     return () => clearInterval(interval);
   }, [dispatch]);
   return (
-    <div>
+    <div className={`"text-xl  ${isDayMode ? "text-black" : "text-white"}`}>
       {mins < 10 && "0"}
       {mins}: {seconds < 10 && "0"}
       {seconds}

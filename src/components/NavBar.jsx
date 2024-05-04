@@ -39,7 +39,7 @@ export default function NavBar({ isDayMode, toggleDayMode }) {
   };
 
   return (
-    <div>
+    <div className="col-span-3 fixed top-0 w-full">
       <nav
         className={`  ${
           isDayMode ? "bg-[#fff]" : "bg-[#00000059]"

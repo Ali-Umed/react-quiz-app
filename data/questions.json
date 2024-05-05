@@ -9,7 +9,8 @@
                 "Vue"
             ],
             "correctOption": 1,
-            "points": 1
+            "points": 1,
+            "type": "programming"
         },
         {
             "question": "Which company invented React?",
@@ -20,7 +21,8 @@
                 "Facebook"
             ],
             "correctOption": 3,
-            "points": 1
+            "points": 1,
+            "type": "programming"
         },
         {
             "question": "What's the fundamental building block of React apps?",
@@ -31,7 +33,8 @@
                 "Effects"
             ],
             "correctOption": 0,
-            "points": 1
+            "points": 1,
+            "type": "programming"
         },
         {
             "question": "What's the name of the syntax we use to describe the UI in React components?",
@@ -42,7 +45,8 @@
                 "ES2015"
             ],
             "correctOption": 2,
-            "points": 1
+            "points": 1,
+            "type": "programming"
         },
         {
             "question": "How does data flow naturally in React apps?",
@@ -53,7 +57,8 @@
                 "The developers decides"
             ],
             "correctOption": 0,
-            "points": 1
+            "points": 1,
+            "type": "programming"
         },
         {
             "question": "How to pass data into a child component?",
@@ -64,7 +69,8 @@
                 "Parameters"
             ],
             "correctOption": 1,
-            "points": 1
+            "points": 1,
+            "type": "programming"
         },
         {
             "question": "When to use derived state?",
@@ -75,7 +81,8 @@
                 "Whenever the state can be computed from another state variable"
             ],
             "correctOption": 3,
-            "points": 3
+            "points": 3,
+            "type": "programming"
         },
         {
             "question": "What triggers a UI re-render in React?",
@@ -86,7 +93,8 @@
                 "Adding event listeners to DOM elements"
             ],
             "correctOption": 2,
-            "points": 2
+            "points": 2,
+            "type": "programming"
         },
         {
             "question": "When do we directly \"touch\" the DOM in React?",
@@ -97,7 +105,8 @@
                 "Almost never"
             ],
             "correctOption": 3,
-            "points": 2
+            "points": 2,
+            "type": "programming"
         },
         {
             "question": "In what situation do we use a callback to update state?",
@@ -108,7 +117,8 @@
                 "When the new state depends on the previous state"
             ],
             "correctOption": 3,
-            "points": 3
+            "points": 3,
+            "type": "programming"
         },
         {
             "question": "If we pass a function to useState, when will that function be called?",
@@ -119,7 +129,8 @@
                 "The first time we update the state"
             ],
             "correctOption": 2,
-            "points": 3
+            "points": 3,
+            "type": "programming"
         },
         {
             "question": "Which hook to use for an API request on the component's initial render?",
@@ -130,7 +141,8 @@
                 "useReducer"
             ],
             "correctOption": 1,
-            "points": 1
+            "points": 1,
+            "type": "programming"
         },
         {
             "question": "Which variables should go into the useEffect dependency array?",
@@ -141,7 +153,8 @@
                 "All variables needed for clean up"
             ],
             "correctOption": 2,
-            "points": 3
+            "points": 3,
+            "type": "programming"
         },
         {
             "question": "An effect will always run on the initial render.",
@@ -152,7 +165,8 @@
                 "In depends on the code in the effect"
             ],
             "correctOption": 0,
-            "points": 3
+            "points": 3,
+            "type": "programming"
         },
         {
             "question": "When will an effect run if it doesn't have a dependency array?",
@@ -163,7 +177,8 @@
                 "Each time the component is re-rendered"
             ],
             "correctOption": 3,
-            "points": 2
+            "points": 2,
+            "type": "programming"
         }
     ]
 }

@@ -19,7 +19,7 @@ export default function Questions({
   return (
     <section
       className={
-        "max-w-[35rem] min-w-[35rem]  min-h-[450px] flex flex-col gap-2 justify-center items-center py-5 mt-5 px-5"
+        " max-w-[30rem] min-w-[30rem] lg:max-w-[35rem] lg:min-w-[35rem]  min-h-[450px] flex flex-col gap-2 justify-center items-center py-5 mt-5 px-5"
       }
     >
       <header>
@@ -30,7 +30,7 @@ export default function Questions({
       </header>
 
       <main
-        className={`p-2 rounded-md mt-5 max-w-[35rem] min-w-[35rem]  min-h-[450px] ${
+        className={`p-2 rounded-md mt-5 max-w-[30rem] min-w-[30rem] lg:max-w-[35rem] md:min-w-[35rem]  min-h-[450px] ${
           isDayMode ? "bg-[#fff]" : "bg-slate-800 "
         }`}
       >

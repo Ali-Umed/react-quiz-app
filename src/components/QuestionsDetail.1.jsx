@@ -12,7 +12,7 @@ export default function QuestionsDetail({
 }) {
   return (
     <div
-      className={`"max-w-[29rem] min-w-[29rem] lg:max-w-[33rem] lg:min-w-[33rem] min-h-[450px]  text-center "  ${
+      className={`"max-w-[22rem] min-w-[22rem] md:max-w-[29rem] md:min-w-[29rem] lg:max-w-[33rem] lg:min-w-[33rem] min-h-[450px]  text-center "  ${
         isDayMode ? "text-black" : "text-white"
       }`}
     >

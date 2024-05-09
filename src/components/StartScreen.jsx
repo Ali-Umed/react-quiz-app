@@ -3,19 +3,16 @@ import React, { Dispatch } from "react";
 export default function StartScreen({ dispatch, numQuestions, isDayMode }) {
   // Dummy data for different types of questions
   const questionTypes = [
+    { type: "Programming", color: "bg-yellow-100", isProgramming: true },
     { type: "Sports", color: "bg-green-100", isProgramming: false },
     { type: "English", color: "bg-blue-100", isProgramming: false },
-    { type: "Programming", color: "bg-yellow-100", isProgramming: true },
   ];
 
-  const handleStart = () => {
-    const programmingQuestionsExist = questionTypes.some(
-      (type) => type.isProgramming
-    );
-    if (programmingQuestionsExist) {
+  const handleStart = (isProgramming, type) => {
+    if (isProgramming) {
       dispatch({ type: "start" });
     } else {
-      alert("No programming questions available!");
+      alert(`No ${type} questions available!`);
     }
   };
 
@@ -31,14 +28,12 @@ export default function StartScreen({ dispatch, numQuestions, isDayMode }) {
             >
               {type.type} Questions
             </h2>
-            {type.isProgramming && (
-              <button
-                className="mt-3 px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-300"
-                onClick={handleStart}
-              >
-                Start
-              </button>
-            )}
+            <button
+              className="mt-3 px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-300"
+              onClick={() => handleStart(type.isProgramming, type.type)}
+            >
+              Start
+            </button>
           </div>
         ))}
       </div>

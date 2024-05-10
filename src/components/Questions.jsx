@@ -30,7 +30,7 @@ export default function Questions({
       </header>
 
       <main
-        className={`p-2 rounded-md mt-5 max-w-[23rem] min-w-[23rem] md:max-w-[30rem] md:min-w-[30rem] lg:max-w-[35rem] lg:min-w-[35rem]  min-h-[450px] ${
+        className={`p-2  rounded-md mt-5 max-w-[23rem] min-w-[23rem] md:max-w-[30rem] md:min-w-[30rem] lg:max-w-[35rem] lg:min-w-[35rem]  min-h-[450px] ${
           isDayMode ? "bg-[#fff]" : "bg-slate-800 "
         }`}
       >

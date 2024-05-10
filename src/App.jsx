@@ -88,7 +88,7 @@ function App() {
       }`}
     >
       <NavBar isDayMode={isDayMode} toggleDayMode={toggleDayMode} />
-      <div className={`col-span-3 place-self-center  min-h-max  `}>
+      <div className={`col-span-3 place-self-center  min-h-max   `}>
         {status == "loading" && <Loader />} {status == "error" && <Error />}
         {status == "ready" && (
           <StartScreen

@@ -8,6 +8,7 @@ import Loader from "./components/Loader";
 import StartScreen from "./components/StartScreen";
 import Error from "./components/Error";
 import jsonQuestions from "../data/questions.json";
+import CreateAccount from "./components/CreateAccount";
 
 const sec_per_questions = 10;
 
@@ -62,11 +63,14 @@ function reducer(state, action) {
       };
   }
 }
+
 function App() {
   const [
     { questions, points, status, sec_remaining, index, answer },
     dispatch,
   ] = useReducer(reducer, initState);
+
+  const [haveAnAccount, setHaveAnAccount] = useState(null);
   const numQuestions = questions.length;
   const [isDayMode, setIsDayMode] = useState(true);
   const toggleDayMode = () => {
@@ -92,13 +96,16 @@ function App() {
         className={`col-span-3 place-self-center  min-h-max md:mt-28 mt-20 `}
       >
         {status == "loading" && <Loader />} {status == "error" && <Error />}
-        {status == "ready" && (
-          <StartScreen
-            dispatch={dispatch}
-            numQuestions={numQuestions}
-            isDayMode={isDayMode}
-          />
-        )}
+        {status == "ready" &&
+          (haveAnAccount ? (
+            <StartScreen
+              dispatch={dispatch}
+              numQuestions={numQuestions}
+              isDayMode={isDayMode}
+            />
+          ) : (
+            <CreateAccount setHaveAnAccount={setHaveAnAccount} />
+          ))}
         {status == "active" && (
           <Questions
             question={questions[index]}

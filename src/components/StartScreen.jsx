@@ -50,13 +50,13 @@ export default function StartScreen({ dispatch, numQuestions, isDayMode }) {
   };
 
   return (
-    <div className="flex   justify-center items-start h-screen ">
+    <div className="flex   justify-center items-start h-screen p-3  ">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
         {questionTypes.map((type, index) => (
           <div
             onClick={() => handleStart(type.isProgramming, type.type)}
             key={index}
-            className={`rounded-lg  cursor-pointer ${
+            className={`rounded-lg  cursor-pointer  ${
               type.color
             } shadow-md hover:shadow-lg 
              ${

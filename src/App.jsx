@@ -23,7 +23,11 @@ const initState = {
 function reducer(state, action) {
   switch (action.type) {
     case "dataReceived":
-      return { ...state, questions: action.payload, status: "ready" };
+      return {
+        ...state,
+        questions: randomQuestions(action.payload),
+        status: "ready",
+      };
     case "dataFailed":
       return {
         ...state,
@@ -64,6 +68,18 @@ function reducer(state, action) {
   }
 }
 
+function randomQuestions(questions) {
+  let newArray = questions.slice();
+
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+
+  return newArray;
+}
+
 function App() {
   const [
     { questions, points, status, sec_remaining, index, answer },
@@ -71,11 +87,13 @@ function App() {
   ] = useReducer(reducer, initState);
 
   const [haveAnAccount, setHaveAnAccount] = useState(null);
-  const numQuestions = questions.length;
   const [isDayMode, setIsDayMode] = useState(true);
+  const numQuestions = questions.length;
+
   const toggleDayMode = () => {
     setIsDayMode(!isDayMode);
   };
+
   useEffect(function () {
     fetch("http://localhost:8000/questions")
       .then((res) => res.json())

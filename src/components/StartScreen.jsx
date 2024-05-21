@@ -80,7 +80,7 @@ export default function StartScreen({ dispatch, numQuestions, isDayMode }) {
             </h2>
             <button
               className="mt-3 px-4 py-2 mb-3 rounded-md bg-teal-500 text-white hover:bg-teal-600 transition-colors duration-300"
-              onClick={() => handleStart(type.isProgramming, type.type)}
+              // onClick={() => handleStart(type.isProgramming, type.type)}
             >
               Start
             </button>

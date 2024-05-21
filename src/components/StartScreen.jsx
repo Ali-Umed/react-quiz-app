@@ -5,7 +5,7 @@ import mathImage from "../images/math.jpg";
 import geography from "../images/geography.jpeg";
 import history from "../images/history.jpeg";
 
-export default function StartScreen({ dispatch, numQuestions, isDayMode }) {
+export default function StartScreen({ dispatch, isDayMode }) {
   const questionTypes = [
     {
       type: "Programming",
@@ -50,7 +50,7 @@ export default function StartScreen({ dispatch, numQuestions, isDayMode }) {
   };
 
   return (
-    <div className="flex   justify-center items-start h-screen p-3  ">
+    <div className="flex justify-center items-start h-screen p-3  ">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
         {questionTypes.map((type, index) => (
           <div

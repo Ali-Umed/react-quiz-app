@@ -69,13 +69,16 @@ export default function Questions({
             <GoChevronRight size={25} />
           </div>
         ) : (
-          <div
-            onClick={() => dispatch({ type: "finish" })}
-            className="flex justify-center  items-center gap-1 rounded-md bg-green-600 p-[0.65rem] hover:cursor-pointer hover:bg-green-500"
-          >
-            <button>finish</button>
-            <GoChevronRight size={25} />
-          </div>
+          lastQuestion &&
+          answer != null && (
+            <div
+              onClick={() => dispatch({ type: "finish" })}
+              className="flex justify-center  items-center gap-1 rounded-md bg-green-600 p-[0.65rem] hover:cursor-pointer hover:bg-green-500"
+            >
+              <button>finish</button>
+              <GoChevronRight size={25} />
+            </div>
+          )
         )}
       </footer>
     </section>

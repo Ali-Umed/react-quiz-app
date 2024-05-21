@@ -77,7 +77,7 @@ function randomQuestions(questions) {
     [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
   }
 
-  return newArray;
+  return newArray.slice(0, 2);
 }
 
 function App() {

@@ -54,7 +54,7 @@ export default function StartScreen({}) {
   };
 
   return (
-    <div className="flex justify-center items-start h-screen p-3  ">
+    <div className="flex justify-center items-start min-h-screen p-3  ">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
         {questionTypes.map((type, index) => (
           <div

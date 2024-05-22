@@ -1,11 +1,15 @@
-import React, { Dispatch } from "react";
+import React, { useContext } from "react";
 import programmingImage from "../images/programming.webp";
 import sportsImage from "../images/sports.avif";
 import mathImage from "../images/math.jpg";
 import geography from "../images/geography.jpeg";
 import history from "../images/history.jpeg";
+import { TasksContext, TasksDispatchContext } from "../context/TasksConteext";
 
-export default function StartScreen({ dispatch, isDayMode }) {
+export default function StartScreen({ isDayMode }) {
+  const dispatch = useContext(TasksDispatchContext);
+  const tasks = useContext(TasksContext);
+  console.log(tasks);
   const questionTypes = [
     {
       type: "Programming",

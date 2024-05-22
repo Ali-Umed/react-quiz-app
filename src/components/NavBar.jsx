@@ -1,6 +1,7 @@
 import { FiMoon, FiSun } from "react-icons/fi";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { TasksContext } from "../context/TasksConteext";
 
 export default function NavBar({ isDayMode, toggleDayMode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -3,7 +3,7 @@ import femaleRabit from "../images/femaleRabit.png";
 import maleRabit from "../images/maleRabit.png";
 import { useState } from "react";
 
-function CreateAccount({ setHaveAnAccount }) {
+function CreateAccount({ setHaveAnAccount, isDayMode }) {
   const [username, setUsername] = useState("");
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
@@ -18,10 +18,14 @@ function CreateAccount({ setHaveAnAccount }) {
   };
 
   return (
-    <div className="flex flex-col gap-5">
+    <div
+      className={`flex flex-col gap-5 ${
+        isDayMode ? "text-black" : "text-white"
+      }  `}
+    >
       <div className="flex gap-5 justify-center">
         <div className="flex flex-col ">
-          <span className={` text-black mb-3 `}>Male</span>
+          <span className={`  mb-3 `}>Male</span>
           <Avatar.Root className="bg-blackA1 inline-flex h-[45px] w-[45px] select-none items-center justify-center overflow-hidden rounded-full align-middle">
             <Avatar.Image
               onClick={() => setGender("male")}
@@ -42,7 +46,7 @@ function CreateAccount({ setHaveAnAccount }) {
           </Avatar.Root>
         </div>
         <div className="flex flex-col ">
-          <span className={`" text-black mb-3 "  `}>Female</span>
+          <span className={`" mb-3 "  `}>Female</span>
           <Avatar.Root className="bg-blackA1 inline-flex h-[45px] w-[45px] select-none items-center justify-center overflow-hidden rounded-full align-middle">
             <Avatar.Image
               onClick={() => setGender("female")}
@@ -69,18 +73,18 @@ function CreateAccount({ setHaveAnAccount }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Username"
-          className="p-2 border border-gray-300 text-black rounded-md"
+          className="p-2 border border-gray-300  rounded-md"
         />
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-          className="p-2 border border-gray-300 text-black rounded-md"
+          className="p-2 border border-gray-300  rounded-md"
         />
         <button
           type="submit"
-          className="bg-teal-500 text-white p-2 rounded-md hover:bg-teal-600"
+          className="bg-teal-500  p-2 rounded-md hover:bg-teal-600"
         >
           Create Account
         </button>

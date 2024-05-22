@@ -10,6 +10,10 @@ import Error from "./components/Error";
 import jsonQuestions from "../data/questions.json";
 import CreateAccount from "./components/CreateAccount";
 import Result from "./components/Result";
+import {
+  TasksContext,
+  TasksDispatchContext,
+} from "./context/TasksConteext.jsx";
 
 const sec_per_questions = 10;
 
@@ -88,13 +92,13 @@ function randomQuestions(questions) {
 
 function App() {
   const [
-    { questions, points, status, sec_remaining, index, answer },
+    // { questions, points, status, sec_remaining, index, answer },
+    tasks,
     dispatch,
   ] = useReducer(reducer, initState);
 
   const [haveAnAccount, setHaveAnAccount] = useState(null);
   const [isDayMode, setIsDayMode] = useState(true);
-  const numQuestions = questions.length;
 
   const toggleDayMode = () => {
     setIsDayMode(!isDayMode);
@@ -110,47 +114,43 @@ function App() {
   }, []);
 
   return (
-    <div
-      className={`"w-screen min-h-screen grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3   text-white  " ${
-        isDayMode ? "bg-cyan-50" : "bg-slate-900"
-      }`}
-    >
-      <NavBar isDayMode={isDayMode} toggleDayMode={toggleDayMode} />
-      <div
-        className={`col-span-3 place-self-center  min-h-max md:mt-28 mt-20 `}
-      >
-        {status == "loading" && <Loader />} {status == "error" && <Error />}
-        {status == "ready" &&
-          (haveAnAccount ? (
-            <StartScreen
-              dispatch={dispatch}
-              numQuestions={numQuestions}
-              isDayMode={isDayMode}
-            />
-          ) : (
-            <CreateAccount setHaveAnAccount={setHaveAnAccount} />
-          ))}
-        {status == "active" && (
-          <Questions
-            question={questions[index]}
-            sec_remaining={sec_remaining}
-            dispatch={dispatch}
-            answer={answer}
-            lastQuestion={index == numQuestions - 1}
-            numQuestions={numQuestions}
-            index={index}
-            isDayMode={isDayMode}
-            points={points}
-          />
-        )}
-        {status == "result" && (
-          <Result points={points} dispatch={dispatch} isDayMode={isDayMode} />
-        )}
-      </div>
-      <Footer isDayMode={isDayMode} />
-      {/* <SpinWeel /> */}
-      {/* <Coins /> */}
-    </div>
+    <TasksContext.Provider value={tasks}>
+      <TasksDispatchContext.Provider value={dispatch}>
+        <div
+          className={`"w-screen min-h-screen grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3   text-white  " ${
+            isDayMode ? "bg-cyan-50" : "bg-slate-900"
+          }`}
+        >
+          <NavBar isDayMode={isDayMode} toggleDayMode={toggleDayMode} />
+          <div
+            className={`col-span-3 place-self-center  min-h-max md:mt-28 mt-20 `}
+          >
+            {tasks.status == "loading" && <Loader />}{" "}
+            {tasks.status == "error" && <Error />}
+            {tasks.status == "ready" &&
+              (haveAnAccount ? (
+                <StartScreen dispatch={dispatch} isDayMode={isDayMode} />
+              ) : (
+                <CreateAccount
+                  setHaveAnAccount={setHaveAnAccount}
+                  isDayMode={isDayMode}
+                />
+              ))}
+            {tasks.status == "active" && <Questions isDayMode={isDayMode} />}
+            {tasks.status == "result" && (
+              <Result
+                points={points}
+                dispatch={dispatch}
+                isDayMode={isDayMode}
+              />
+            )}
+          </div>
+          <Footer isDayMode={isDayMode} />
+          {/* <SpinWeel /> */}
+          {/* <Coins /> */}
+        </div>
+      </TasksDispatchContext.Provider>
+    </TasksContext.Provider>
   );
 }
 

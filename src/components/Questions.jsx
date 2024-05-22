@@ -1,21 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import QuestionsDetail from "./QuestionsDetail.1";
 import { GoChevronRight } from "react-icons/go";
 import { BiAlarm } from "react-icons/bi";
 import { BiDollar } from "react-icons/bi";
 import Timer from "./Timer";
+import { TasksContext, TasksDispatchContext } from "../context/TasksConteext";
 
-export default function Questions({
-  sec_remaining,
-  question,
-  dispatch,
-  answer,
-  lastQuestion,
-  isDayMode,
-  index,
-  numQuestions,
-  points,
-}) {
+export default function Questions({ isDayMode }) {
+  const { sec_remaining, questions, answer, index, points } =
+    useContext(TasksContext);
+  const dispatch = useContext(TasksDispatchContext);
+
+  const question = questions[index];
+  const numQuestions = questions.length;
+  const lastQuestion = index == numQuestions - 1;
+
   return (
     <section
       className={

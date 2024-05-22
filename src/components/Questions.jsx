@@ -11,9 +11,7 @@ export default function Questions({ isDayMode }) {
     useContext(TasksContext);
   const dispatch = useContext(TasksDispatchContext);
 
-  const question = questions[index];
-  const numQuestions = questions.length;
-  const lastQuestion = index == numQuestions - 1;
+  const lastQuestion = index == questions.length - 1;
 
   return (
     <section
@@ -26,14 +24,7 @@ export default function Questions({ isDayMode }) {
           isDayMode ? "bg-[#fff]" : "bg-slate-800 "
         }`}
       >
-        <QuestionsDetail
-          question={question}
-          dispatch={dispatch}
-          answer={answer}
-          isDayMode={isDayMode}
-          numQuestions={numQuestions}
-          index={index}
-        />
+        <QuestionsDetail isDayMode={isDayMode} />
       </main>
 
       <footer className="flex justify-between items-center w-full my-3">
@@ -43,11 +34,7 @@ export default function Questions({ isDayMode }) {
           }`}
         >
           <BiAlarm size={25} color={` ${isDayMode ? "black" : "white"}`} />
-          <Timer
-            sec_remaining={sec_remaining}
-            dispatch={dispatch}
-            isDayMode={isDayMode}
-          />
+          <Timer isDayMode={isDayMode} />
         </div>
         <div
           className={`"text-5xl font-semibold  p-2 rounded-lg flex text-center items-center ${

@@ -137,13 +137,7 @@ function App() {
                 />
               ))}
             {tasks.status == "active" && <Questions isDayMode={isDayMode} />}
-            {tasks.status == "result" && (
-              <Result
-                points={points}
-                dispatch={dispatch}
-                isDayMode={isDayMode}
-              />
-            )}
+            {tasks.status == "result" && <Result isDayMode={isDayMode} />}
           </div>
           <Footer isDayMode={isDayMode} />
           {/* <SpinWeel /> */}

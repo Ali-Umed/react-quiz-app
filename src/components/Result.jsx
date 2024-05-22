@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import winner from "../../src/images/winner.png";
+import { TasksContext, TasksDispatchContext } from "../context/TasksConteext";
 
-export default function Result({ points, dispatch, isDayMode }) {
+export default function Result({ isDayMode }) {
+  const { points } = useContext(TasksContext);
+  const dispatch = useContext(TasksDispatchContext);
+
   return (
     <div
       className={`${

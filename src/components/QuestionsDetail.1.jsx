@@ -1,15 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { HiCheckCircle } from "react-icons/hi";
 import { Options } from "./Options";
+import { TasksContext, TasksDispatchContext } from "../context/TasksConteext";
 
-export default function QuestionsDetail({
-  question,
-  dispatch,
-  answer,
-  isDayMode,
-  numQuestions,
-  index,
-}) {
+export default function QuestionsDetail({ isDayMode }) {
+  const { questions, index } = useContext(TasksContext);
+  const question = questions[index];
+  const numQuestions = questions.length;
+
   return (
     <div
       className={`"max-w-[22rem] min-w-[22rem] md:max-w-[29rem] md:min-w-[29rem] lg:max-w-[33rem] lg:min-w-[33rem] min-h-[470px] max-h-[470px]  text-center "  ${
@@ -22,8 +20,7 @@ export default function QuestionsDetail({
       <div className=" text-center mb-4 mt-10 text-xl min-h-20">
         {question.question}
       </div>
-
-      {<Options question={question} answer={answer} dispatch={dispatch} />}
+      {<Options />}
     </div>
   );
 }

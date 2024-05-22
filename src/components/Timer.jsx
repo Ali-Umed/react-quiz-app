@@ -1,8 +1,12 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { TasksContext, TasksDispatchContext } from "../context/TasksConteext";
 
 let mins = 0;
 let seconds = 0;
-export default function Timer({ sec_remaining, dispatch, isDayMode }) {
+export default function Timer({ isDayMode }) {
+  const { sec_remaining } = useContext(TasksContext);
+  const dispatch = useContext(TasksDispatchContext);
+
   mins = Math.floor(sec_remaining / 60);
   seconds = sec_remaining % 60;
   useEffect(() => {

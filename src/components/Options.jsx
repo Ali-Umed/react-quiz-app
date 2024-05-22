@@ -2,7 +2,10 @@ import { BiCircle } from "react-icons/bi";
 import { CiCircleRemove } from "react-icons/ci";
 import { HiCheckCircle } from "react-icons/hi";
 
-export function Options({ question, answer, dispatch }) {
+export function Options() {
+  const { questions, answer, index } = useContext(TasksContext);
+  const dispatch = useContext(TasksDispatchContext);
+  const question = questions[index];
   const hasAnswer = answer != null;
 
   function getOptionSize(option) {

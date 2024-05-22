@@ -11,6 +11,7 @@ import jsonQuestions from "../data/questions.json";
 import CreateAccount from "./components/CreateAccount";
 import Result from "./components/Result";
 import {
+  AccountContext,
   DayModeContext,
   TasksContext,
   TasksDispatchContext,
@@ -91,14 +92,14 @@ function randomQuestions(questions) {
   return newArray.slice(0, 2);
 }
 
-function App() {
+export default function App() {
   const [
     // { questions, points, status, sec_remaining, index, answer },
     tasks,
     dispatch,
   ] = useReducer(reducer, initState);
 
-  const [haveAnAccount, setHaveAnAccount] = useState(null);
+  const [account, setAccount] = useState(null);
   const [isDayMode, setIsDayMode] = useState(true);
 
   const toggleDayMode = () => {
@@ -114,38 +115,47 @@ function App() {
       );
   }, []);
 
+  useEffect(() => {
+    account !== null && localStorage.setItem("account", account);
+    const userAccount = localStorage.getItem("account");
+    if (userAccount) {
+      setAccount(userAccount);
+      setIsDayMode(userAccount.isDayMode);
+    }
+  }, [account]);
+
   return (
     <TasksContext.Provider value={tasks}>
       <TasksDispatchContext.Provider value={dispatch}>
         <DayModeContext.Provider value={isDayMode}>
-          <div
-            className={`"w-screen min-h-screen grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3   text-white  " ${
-              isDayMode ? "bg-cyan-50" : "bg-slate-900"
-            }`}
-          >
-            <NavBar toggleDayMode={toggleDayMode} />
+          <AccountContext.Provider value={account}>
             <div
-              className={`col-span-3 place-self-center  min-h-max md:mt-28 mt-20 `}
+              className={`"w-screen min-h-screen grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3   text-white  " ${
+                isDayMode ? "bg-cyan-50" : "bg-slate-900"
+              }`}
             >
-              {tasks.status == "loading" && <Loader />}{" "}
-              {tasks.status == "error" && <Error />}
-              {tasks.status == "ready" &&
-                (haveAnAccount ? (
-                  <StartScreen dispatch={dispatch} />
-                ) : (
-                  <CreateAccount setHaveAnAccount={setHaveAnAccount} />
-                ))}
-              {tasks.status == "active" && <Questions />}
-              {tasks.status == "result" && <Result />}
+              <NavBar toggleDayMode={toggleDayMode} />
+              <div
+                className={`col-span-3 place-self-center  min-h-max md:mt-28 mt-20 `}
+              >
+                {tasks.status == "loading" && <Loader />}{" "}
+                {tasks.status == "error" && <Error />}
+                {tasks.status == "ready" &&
+                  (account ? (
+                    <StartScreen dispatch={dispatch} />
+                  ) : (
+                    <CreateAccount setAccount={setAccount} />
+                  ))}
+                {tasks.status == "active" && <Questions />}
+                {tasks.status == "result" && <Result />}
+              </div>
+              <Footer />
+              {/* <SpinWeel /> */}
+              {/* <Coins /> */}
             </div>
-            <Footer />
-            {/* <SpinWeel /> */}
-            {/* <Coins /> */}
-          </div>
+          </AccountContext.Provider>
         </DayModeContext.Provider>
       </TasksDispatchContext.Provider>
     </TasksContext.Provider>
   );
 }
-
-export default App;

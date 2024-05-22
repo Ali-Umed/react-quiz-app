@@ -41,7 +41,7 @@ export default function Footer() {
                   isDayMode ? "bg-white" : "bg-[#00000000]"
                 }  `}
               >
-                <span className="text-center">&copy; Weather App 2024</span>
+                <span className="text-center">&copy; Quiz App 2024</span>
                 <div className="flex gap-2">
                   <a
                     target="blank"

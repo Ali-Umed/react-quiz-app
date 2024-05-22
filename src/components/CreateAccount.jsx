@@ -4,7 +4,7 @@ import maleRabit from "../images/maleRabit.png";
 import { useContext, useState } from "react";
 import { DayModeContext } from "../context/TasksConteext";
 
-function CreateAccount({ setHaveAnAccount }) {
+function CreateAccount({ setAccount }) {
   const [username, setUsername] = useState("");
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
@@ -12,11 +12,16 @@ function CreateAccount({ setHaveAnAccount }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!username || !password) {
-      alert("Please enter both username and password");
+    if (!username || !password || !gender) {
+      alert("Please enter both username and password and gender");
       return;
     }
-    setHaveAnAccount(true);
+    setAccount({
+      username: username,
+      gender: gender,
+      password: password,
+      isDayMode: isDayMode,
+    });
   };
 
   return (

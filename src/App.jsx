@@ -9,6 +9,7 @@ import StartScreen from "./components/StartScreen";
 import Error from "./components/Error";
 import jsonQuestions from "../data/questions.json";
 import CreateAccount from "./components/CreateAccount";
+import Result from "./components/Result";
 
 const sec_per_questions = 10;
 
@@ -59,11 +60,16 @@ function reducer(state, action) {
         ...state,
         sec_remaining: state.sec_remaining > 0 ? state.sec_remaining - 1 : 0,
       };
+    case "prize":
+      return {
+        ...state,
+        status: "result",
+      };
     case "finish":
       return {
         ...initState,
         status: "ready",
-        questions: state.questions,
+        questions: randomQuestions(state.questions),
       };
   }
 }
@@ -136,6 +142,9 @@ function App() {
             isDayMode={isDayMode}
             points={points}
           />
+        )}
+        {status == "result" && (
+          <Result points={points} dispatch={dispatch} isDayMode={isDayMode} />
         )}
       </div>
       <Footer isDayMode={isDayMode} />

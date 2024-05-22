@@ -72,7 +72,7 @@ export default function Questions({
           lastQuestion &&
           answer != null && (
             <div
-              onClick={() => dispatch({ type: "finish" })}
+              onClick={() => dispatch({ type: "prize" })}
               className="flex justify-center  items-center gap-1 rounded-md bg-green-600 p-[0.65rem] hover:cursor-pointer hover:bg-green-500"
             >
               <button>finish</button>

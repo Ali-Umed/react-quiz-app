@@ -21,11 +21,11 @@ export default function Questions() {
   return (
     <section
       className={
-        " max-w-[23rem] min-w-[23rem] md:max-w-[30rem] md:min-w-[30rem] lg:max-w-[35rem] lg:min-w-[35rem]  min-h-[450px] flex flex-col gap-2 justify-center items-center py-5 mt-5 px-5"
+        " max-w-[23rem] min-w-[23rem] md:max-w-[30rem] md:min-w-[30rem] lg:max-w-[35rem] lg:min-w-[35rem]  min-h-[450px] flex flex-col gap-2 justify-center items-center py-5  mt-0 md:mt-5 px-5"
       }
     >
       <main
-        className={`p-2  rounded-md mt-5 max-w-[23rem] min-w-[23rem] md:max-w-[30rem] md:min-w-[30rem] lg:max-w-[35rem] lg:min-w-[35rem]  min-h-[450px] ${
+        className={`p-2  rounded-md  max-w-[23rem] min-w-[23rem] md:max-w-[30rem] md:min-w-[30rem] lg:max-w-[35rem] lg:min-w-[35rem]  min-h-[450px] ${
           isDayMode ? "bg-[#fff]" : "bg-slate-800 "
         }`}
       >

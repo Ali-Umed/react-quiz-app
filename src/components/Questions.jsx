@@ -4,13 +4,18 @@ import { GoChevronRight } from "react-icons/go";
 import { BiAlarm } from "react-icons/bi";
 import { BiDollar } from "react-icons/bi";
 import Timer from "./Timer";
-import { TasksContext, TasksDispatchContext } from "../context/TasksConteext";
+import {
+  DayModeContext,
+  TasksContext,
+  TasksDispatchContext,
+} from "../context/TasksConteext";
 
-export default function Questions({ isDayMode }) {
+export default function Questions() {
   const { sec_remaining, questions, answer, index, points } =
     useContext(TasksContext);
-  const dispatch = useContext(TasksDispatchContext);
+  const isDayMode = useContext(DayModeContext);
 
+  const dispatch = useContext(TasksDispatchContext);
   const lastQuestion = index == questions.length - 1;
 
   return (
@@ -24,7 +29,7 @@ export default function Questions({ isDayMode }) {
           isDayMode ? "bg-[#fff]" : "bg-slate-800 "
         }`}
       >
-        <QuestionsDetail isDayMode={isDayMode} />
+        <QuestionsDetail />
       </main>
 
       <footer className="flex justify-between items-center w-full my-3">
@@ -34,7 +39,7 @@ export default function Questions({ isDayMode }) {
           }`}
         >
           <BiAlarm size={25} color={` ${isDayMode ? "black" : "white"}`} />
-          <Timer isDayMode={isDayMode} />
+          <Timer />
         </div>
         <div
           className={`"text-5xl font-semibold  p-2 rounded-lg flex text-center items-center ${

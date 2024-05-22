@@ -1,12 +1,17 @@
 import React, { useContext } from "react";
 import { HiCheckCircle } from "react-icons/hi";
 import { Options } from "./Options";
-import { TasksContext, TasksDispatchContext } from "../context/TasksConteext";
+import {
+  DayModeContext,
+  TasksContext,
+  TasksDispatchContext,
+} from "../context/TasksConteext";
 
-export default function QuestionsDetail({ isDayMode }) {
+export default function QuestionsDetail() {
   const { questions, index } = useContext(TasksContext);
   const question = questions[index];
   const numQuestions = questions.length;
+  const isDayMode = useContext(DayModeContext);
 
   return (
     <div

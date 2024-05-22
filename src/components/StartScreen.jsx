@@ -4,12 +4,12 @@ import sportsImage from "../images/sports.avif";
 import mathImage from "../images/math.jpg";
 import geography from "../images/geography.jpeg";
 import history from "../images/history.jpeg";
-import { TasksContext, TasksDispatchContext } from "../context/TasksConteext";
+import { DayModeContext, TasksDispatchContext } from "../context/TasksConteext";
 
-export default function StartScreen({ isDayMode }) {
+export default function StartScreen({}) {
   const dispatch = useContext(TasksDispatchContext);
-  const tasks = useContext(TasksContext);
-  console.log(tasks);
+  const isDayMode = useContext(DayModeContext);
+
   const questionTypes = [
     {
       type: "Programming",

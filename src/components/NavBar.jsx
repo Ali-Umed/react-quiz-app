@@ -1,14 +1,16 @@
 import { FiMoon, FiSun } from "react-icons/fi";
 import { useState, useEffect, useContext } from "react";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
-import { TasksContext } from "../context/TasksConteext";
+import { DayModeContext } from "../context/TasksConteext";
 
-export default function NavBar({ isDayMode, toggleDayMode }) {
+export default function NavBar({ toggleDayMode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const isDayMode = useContext(DayModeContext);
 
   useEffect(() => {
     const handleClickOutside = (event) => {

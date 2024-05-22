@@ -1,12 +1,14 @@
 import * as Avatar from "@radix-ui/react-avatar";
 import femaleRabit from "../images/femaleRabit.png";
 import maleRabit from "../images/maleRabit.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { DayModeContext } from "../context/TasksConteext";
 
-function CreateAccount({ setHaveAnAccount, isDayMode }) {
+function CreateAccount({ setHaveAnAccount }) {
   const [username, setUsername] = useState("");
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
+  const isDayMode = useContext(DayModeContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -73,14 +75,18 @@ function CreateAccount({ setHaveAnAccount, isDayMode }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Username"
-          className="p-2 border border-gray-300  rounded-md"
+          className={`"p-2 border border-gray-300  rounded-md"  ${
+            isDayMode ? "text-black" : "text-black"
+          }  `}
         />
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-          className="p-2 border border-gray-300  rounded-md"
+          className={`"p-2 border border-gray-300  rounded-md"  ${
+            isDayMode ? "text-red" : "text-black"
+          }  `}
         />
         <button
           type="submit"

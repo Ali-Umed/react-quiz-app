@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import Coins from "./components/Coins";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
@@ -11,6 +11,7 @@ import jsonQuestions from "../data/questions.json";
 import CreateAccount from "./components/CreateAccount";
 import Result from "./components/Result";
 import {
+  DayModeContext,
   TasksContext,
   TasksDispatchContext,
 } from "./context/TasksConteext.jsx";
@@ -116,33 +117,32 @@ function App() {
   return (
     <TasksContext.Provider value={tasks}>
       <TasksDispatchContext.Provider value={dispatch}>
-        <div
-          className={`"w-screen min-h-screen grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3   text-white  " ${
-            isDayMode ? "bg-cyan-50" : "bg-slate-900"
-          }`}
-        >
-          <NavBar isDayMode={isDayMode} toggleDayMode={toggleDayMode} />
+        <DayModeContext.Provider value={isDayMode}>
           <div
-            className={`col-span-3 place-self-center  min-h-max md:mt-28 mt-20 `}
+            className={`"w-screen min-h-screen grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3   text-white  " ${
+              isDayMode ? "bg-cyan-50" : "bg-slate-900"
+            }`}
           >
-            {tasks.status == "loading" && <Loader />}{" "}
-            {tasks.status == "error" && <Error />}
-            {tasks.status == "ready" &&
-              (haveAnAccount ? (
-                <StartScreen dispatch={dispatch} isDayMode={isDayMode} />
-              ) : (
-                <CreateAccount
-                  setHaveAnAccount={setHaveAnAccount}
-                  isDayMode={isDayMode}
-                />
-              ))}
-            {tasks.status == "active" && <Questions isDayMode={isDayMode} />}
-            {tasks.status == "result" && <Result isDayMode={isDayMode} />}
+            <NavBar toggleDayMode={toggleDayMode} />
+            <div
+              className={`col-span-3 place-self-center  min-h-max md:mt-28 mt-20 `}
+            >
+              {tasks.status == "loading" && <Loader />}{" "}
+              {tasks.status == "error" && <Error />}
+              {tasks.status == "ready" &&
+                (haveAnAccount ? (
+                  <StartScreen dispatch={dispatch} />
+                ) : (
+                  <CreateAccount setHaveAnAccount={setHaveAnAccount} />
+                ))}
+              {tasks.status == "active" && <Questions />}
+              {tasks.status == "result" && <Result />}
+            </div>
+            <Footer />
+            {/* <SpinWeel /> */}
+            {/* <Coins /> */}
           </div>
-          <Footer isDayMode={isDayMode} />
-          {/* <SpinWeel /> */}
-          {/* <Coins /> */}
-        </div>
+        </DayModeContext.Provider>
       </TasksDispatchContext.Provider>
     </TasksContext.Provider>
   );

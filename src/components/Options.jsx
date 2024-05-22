@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import { BiCircle } from "react-icons/bi";
 import { CiCircleRemove } from "react-icons/ci";
 import { HiCheckCircle } from "react-icons/hi";
+import { TasksContext, TasksDispatchContext } from "../context/TasksConteext";
 
 export function Options() {
   const { questions, answer, index } = useContext(TasksContext);

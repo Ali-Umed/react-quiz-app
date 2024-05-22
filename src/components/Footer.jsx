@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { DayModeContext } from "../context/TasksConteext";
 
-export default function Footer({ isDayMode }) {
+export default function Footer() {
+  const isDayMode = useContext(DayModeContext);
   return (
     <footer
       className={`col-span-3 h-20  mt-8 fixed bottom-0 w-full ${

@@ -144,7 +144,7 @@ export default function App() {
             >
               <NavBar toggleDayMode={toggleDayMode} />
               <div
-                className={`col-span-3 place-self-center  min-h-max md:mt-28 mt-20 `}
+                className={`col-span-3  place-self-center  min-h-max md:mt-28 mt-20 `}
               >
                 {tasks.status === "loading" && <Loader />}
                 {tasks.status === "error" && <Error />}

@@ -21,7 +21,7 @@ const sec_per_questions = 10;
 
 const initState = {
   questions: [],
-  points: 0,
+  coins: 0,
   status: "loading",
   sec_remaining: 0,
   index: 0,
@@ -50,10 +50,10 @@ function reducer(state, action) {
       return {
         ...state,
         answer: action.payload,
-        points:
+        coins:
           action.payload == state.questions[state.index].correctOption
-            ? state.points + state.questions[state.index].points
-            : state.points,
+            ? state.coins + state.questions[state.index].points
+            : state.coins,
       };
     case "nextQuestion":
       return {
@@ -93,11 +93,7 @@ function randomQuestions(questions) {
 }
 
 export default function App() {
-  const [
-    // { questions, points, status, sec_remaining, index, answer },
-    tasks,
-    dispatch,
-  ] = useReducer(reducer, initState);
+  const [tasks, dispatch] = useReducer(reducer, initState);
 
   const [account, setAccount] = useState(null);
   const [isDayMode, setIsDayMode] = useState(true);
@@ -106,7 +102,7 @@ export default function App() {
     setIsDayMode(!isDayMode);
   };
 
-  useEffect(function () {
+  useEffect(() => {
     fetch("http://localhost:8000/questions")
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataReceived", payload: data }))
@@ -116,13 +112,25 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    account !== null && localStorage.setItem("account", account);
-    const userAccount = localStorage.getItem("account");
-    if (userAccount) {
+    const userAccountString = localStorage.getItem("account");
+
+    if (userAccountString) {
+      const userAccount = JSON.parse(userAccountString);
       setAccount(userAccount);
       setIsDayMode(userAccount.isDayMode);
     }
-  }, [account]);
+  }, []);
+
+  useEffect(() => {
+    if (tasks.status === "result" && account) {
+      const updatedUserAccount = {
+        ...account,
+        coins: account.coins + tasks.coins,
+      };
+      setAccount(updatedUserAccount);
+      localStorage.setItem("account", JSON.stringify(updatedUserAccount));
+    }
+  }, [tasks.status, account]);
 
   return (
     <TasksContext.Provider value={tasks}>
@@ -138,16 +146,16 @@ export default function App() {
               <div
                 className={`col-span-3 place-self-center  min-h-max md:mt-28 mt-20 `}
               >
-                {tasks.status == "loading" && <Loader />}{" "}
-                {tasks.status == "error" && <Error />}
-                {tasks.status == "ready" &&
+                {tasks.status === "loading" && <Loader />}
+                {tasks.status === "error" && <Error />}
+                {tasks.status === "ready" &&
                   (account ? (
                     <StartScreen dispatch={dispatch} />
                   ) : (
                     <CreateAccount setAccount={setAccount} />
                   ))}
-                {tasks.status == "active" && <Questions />}
-                {tasks.status == "result" && <Result />}
+                {tasks.status === "active" && <Questions />}
+                {tasks.status === "result" && <Result />}
               </div>
               <Footer />
               {/* <SpinWeel /> */}

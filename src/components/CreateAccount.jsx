@@ -10,18 +10,21 @@ function CreateAccount({ setAccount }) {
   const [password, setPassword] = useState("");
   const isDayMode = useContext(DayModeContext);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async () => {
     event.preventDefault();
     if (!username || !password || !gender) {
       alert("Please enter both username and password and gender");
       return;
     }
-    setAccount({
+    const account = {
       username: username,
       gender: gender,
       password: password,
       isDayMode: isDayMode,
-    });
+      coins: 0,
+    };
+    setAccount(account);
+    localStorage.setItem("account", JSON.stringify(account));
   };
 
   return (

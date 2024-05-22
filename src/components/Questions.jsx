@@ -11,7 +11,7 @@ import {
 } from "../context/TasksConteext";
 
 export default function Questions() {
-  const { sec_remaining, questions, answer, index, points } =
+  const { sec_remaining, questions, answer, index, coins } =
     useContext(TasksContext);
   const isDayMode = useContext(DayModeContext);
 
@@ -47,7 +47,7 @@ export default function Questions() {
           }`}
         >
           <BiDollar />
-          {points}
+          {coins}
         </div>
         {!lastQuestion && sec_remaining > 0 ? (
           <div

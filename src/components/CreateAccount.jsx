@@ -83,7 +83,7 @@ function CreateAccount({ setAccount }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Username"
-          className={`"p-2 border border-gray-300  rounded-md"  ${
+          className={`"border border-gray-300 p-1 rounded-md"  ${
             isDayMode ? "text-black" : "text-black"
           }  `}
         />
@@ -92,13 +92,13 @@ function CreateAccount({ setAccount }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-          className={`"p-2 border border-gray-300  rounded-md"  ${
+          className={`"border border-gray-300 p-1 rounded-md"  ${
             isDayMode ? "text-red" : "text-black"
           }  `}
         />
         <button
           type="submit"
-          className="bg-teal-500  p-2 rounded-md hover:bg-teal-600"
+          className="bg-teal-500 text-white p-2 rounded-md hover:bg-teal-600"
         >
           Create Account
         </button>

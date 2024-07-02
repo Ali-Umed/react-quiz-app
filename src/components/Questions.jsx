@@ -21,7 +21,7 @@ export default function Questions() {
   return (
     <section
       className={
-        " max-w-[23rem] min-w-[23rem] md:max-w-[30rem] md:min-w-[30rem] lg:max-w-[35rem] lg:min-w-[35rem]  min-h-[450px] flex flex-col gap-2 justify-center items-center py-5  mt-0 md:mt-5 px-5"
+        "max-w-[23rem] min-w-[23rem] md:max-w-[30rem] md:min-w-[30rem] lg:max-w-[35rem] lg:min-w-[35rem]  min-h-[450px] flex flex-col gap-2 justify-center items-center py-5  mt-0 md:mt-5 px-5"
       }
     >
       <main
@@ -32,9 +32,9 @@ export default function Questions() {
         <QuestionsDetail />
       </main>
 
-      <footer className="flex justify-between items-center w-full my-3">
+      <footer className="flex justify-between w-full my-3">
         <div
-          className={` flex justify-center items-center gap-1 rounded-md   p-[0.65rem] ${
+          className={`flex justify-between gap-1 rounded-md p-[0.65rem] ${
             isDayMode ? "bg-[#fff]" : "bg-slate-800 "
           }`}
         >

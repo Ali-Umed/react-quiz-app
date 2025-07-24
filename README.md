@@ -1,30 +1,59 @@
-# React + TypeScript + Vite
+---
+title: React Quiz App
+published: 2022-07-01
+tags: [React, Quiz, Tailwind, Vite]
+category: Projects
+draft: false
+---
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🎉 React Quiz App
 
-Currently, two official plugins are available:
+A modern, mobile-friendly quiz application built with **React**, **Vite**, and **Tailwind CSS**.  
+Supports multiple quiz categories, light/dark mode, a coin reward system, account tracking, and smooth animations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Live Demo
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+👉 [Try the Live Demo](https://quiz-app-self-mu.vercel.app/)
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## ✨ Features
+
+- 🧠 **Multiple Categories** – Programming, Sports, Math, History, Geography
+- 🔄 **Randomized Questions** – Unique questions each game
+- 🌙 **Day/Night Mode** – Toggle between light and dark themes
+- 💰 **Coins System** – Earn rewards for correct answers
+- 🖼️ **Smooth Animations** – Modern transitions and UI effects
+- 📱 **Responsive Design** – Works on all screen sizes
+- 🔐 **User Accounts** – Create an account and track your progress
+
+---
+
+## 🛠️ Tech Stack
+
+- ⚛️ [React](https://react.dev/) – UI development
+- ⚡ [Vite](https://vitejs.dev/) – Lightning-fast frontend tooling
+- 🎨 [Tailwind CSS](https://tailwindcss.com/) – Modern utility-first styling
+- 🎯 [React Icons](https://react-icons.github.io/react-icons/) – Icon library
+
+## ⚙️ Getting Started
+
+Follow these steps to run the app locally:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/Ali-Umed/react-quiz-app.git
+cd react-quiz-app
+
+# 2. Install dependencies
+npm install
+
+# 3. Add your API key
+# Get one from https://www.visualcrossing.com/
+# (Or use the one provided in the code – it's free to use)
+
+# 4. Start the development server
+npm start
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list

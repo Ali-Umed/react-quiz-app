@@ -6,8 +6,8 @@ export default function Footer() {
   const isDayMode = useContext(DayModeContext);
   return (
     <footer
-      className={`col-span-3 md:h-20  mt-8  sm:h-32  h-38 w-full ${
-        isDayMode ? "bg-[#fff]" : "bg-[#00000059]"
+      className={`col-span-3 rounded-b-xl shadow-lg mt-8 py-6 ${
+        isDayMode ? "bg-white" : "bg-slate-900"
       }`}
       id="footer"
     >
@@ -29,9 +29,12 @@ export default function Footer() {
                   : "border-b border-b-gray-600"
               } col-span-8   md:col-span-1 border-b border-b-black md:border-none lg:col-span-3 `}
             >
-              <div className="flex items-center  gap-6   py-3 md:block md:space-y-6 justify-center  md:py-0">
-                <div className="md:p-2 ">
-                  <AiOutlineQuestionCircle className="h-8 w-8 text-[#61b0e6]  mr-3" />
+              <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6">
+                <div className="flex items-center gap-4">
+                  <AiOutlineQuestionCircle className="h-8 w-8 text-teal-500" />
+                  <span className="font-bold text-lg text-teal-500">
+                    Quiz App
+                  </span>
                 </div>
               </div>
             </div>
@@ -41,8 +44,8 @@ export default function Footer() {
                   isDayMode ? "bg-white" : "bg-[#00000000]"
                 }  `}
               >
-                <span className="text-center">&copy; Quiz App 2024</span>
-                <div className="flex gap-2">
+                <span className="text-gray-500">&copy; Quiz App 2024</span>
+                <div className="flex gap-4">
                   <a
                     target="blank"
                     aria-label="github"

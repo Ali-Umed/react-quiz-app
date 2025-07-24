@@ -42,15 +42,16 @@ export default function NavBar({ toggleDayMode }) {
   };
 
   return (
-    <div className="col-span-3 fixed top-0 w-full">
+    <div className="col-span-3 sticky top-0 w-full z-40">
       <nav
-        className={`  ${
-          isDayMode ? "bg-[#fff]" : "bg-[#00000059]"
-        } border-gray-200`}
+        className={`shadow-lg rounded-b-xl ${
+          isDayMode ? "bg-white" : "bg-slate-900"
+        }`}
       >
         <div className="max-w-screen-lg flex items-center justify-between mx-auto p-4">
           <a href="#" className="flex items-center" onClick={handleHomeClick}>
-            <AiOutlineQuestionCircle className="h-8 w-8 text-[#61b0e6] mr-3" />
+            <AiOutlineQuestionCircle className="h-8 w-8 text-teal-500 mr-3" />
+            <span className="font-bold text-xl text-teal-500">Quiz App</span>
           </a>
 
           <div className="flex md:order-2">
@@ -110,7 +111,7 @@ export default function NavBar({ toggleDayMode }) {
               <li>
                 <a
                   href="#footer"
-                  className="block py-2 pl-3 pr-4 text-gray-500 rounded hover:text-cyan-600 md:p-0"
+                  className="text-gray-500 hover:text-teal-500 transition"
                   onClick={handleAboutClick}
                 >
                   About

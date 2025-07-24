@@ -13,18 +13,18 @@ export default function Result() {
 
   return (
     <div
-      className={`${
-        isDayMode ? "text-black" : "text-white"
-      } flex flex-col text-center items-center `}
+      className={`flex flex-col items-center justify-center text-center rounded-xl shadow-lg p-8 mt-10 max-w-md mx-auto ${
+        isDayMode ? "bg-white text-black" : "bg-slate-800 text-white"
+      }`}
     >
-      <img src={winner} alt="" className="w-80 ml-20" />
-      <h1>Coins +{coins}</h1>
-      <div
+      <img src={winner} alt="" className="w-48 mb-6" />
+      <h1 className="text-2xl font-bold mb-2">Coins +{coins}</h1>
+      <button
         onClick={() => dispatch({ type: "finish" })}
-        className="flex justify-center  items-center gap-1 mt-6 rounded-lg bg-teal-600 px-5 py-2 hover:cursor-pointer hover:bg-teal-500"
+        className="mt-6 px-6 py-2 rounded-full bg-teal-600 text-white font-semibold hover:bg-teal-500 transition"
       >
-        <button>Exit</button>
-      </div>
+        Exit
+      </button>
     </div>
   );
 }

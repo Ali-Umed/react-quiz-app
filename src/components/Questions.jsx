@@ -19,20 +19,16 @@ export default function Questions() {
   const lastQuestion = index == questions.length - 1;
 
   return (
-    <section
-      className={
-        " max-w-[23rem] min-w-[23rem] md:max-w-[30rem] md:min-w-[30rem] lg:max-w-[35rem] lg:min-w-[35rem]  min-h-[450px] flex flex-col gap-2 justify-center items-center py-5  mt-0 md:mt-5 px-5"
-      }
-    >
+    <section className="max-w-xl w-full flex flex-col gap-4 justify-center items-center py-8">
       <main
-        className={`p-2  rounded-md  max-w-[23rem] min-w-[23rem] md:max-w-[30rem] md:min-w-[30rem] lg:max-w-[35rem] lg:min-w-[35rem]  min-h-[450px] ${
-          isDayMode ? "bg-[#fff]" : "bg-slate-800 "
+        className={`p-4 rounded-xl shadow-lg w-full min-h-[450px] ${
+          isDayMode ? "bg-white" : "bg-slate-800"
         }`}
       >
         <QuestionsDetail />
       </main>
 
-      <footer className="flex justify-between items-center w-full my-3">
+      <footer className="flex justify-between items-center w-full mt-4">
         <div
           className={` flex justify-center items-center gap-1 rounded-md   p-[0.65rem] ${
             isDayMode ? "bg-[#fff]" : "bg-slate-800 "
@@ -52,11 +48,11 @@ export default function Questions() {
         {!lastQuestion && sec_remaining > 0 ? (
           <div
             onClick={() => dispatch({ type: "nextQuestion" })}
-            className={`flex justify-center items-center gap-1 rounded-md bg-green-600 p-[0.45rem] hover:cursor-pointer hover:bg-green-500 ${
-              answer == null ? " invisible " : "visible"
-            } `}
+            className={`flex justify-center items-center gap-2 rounded-full bg-green-600 px-5 py-2 hover:bg-green-500 transition ${
+              answer == null ? "invisible" : "visible"
+            }`}
           >
-            <button>Next Question</button>
+            <button className="font-semibold text-white">Next Question</button>
             <GoChevronRight size={25} />
           </div>
         ) : (

@@ -29,76 +29,37 @@ function CreateAccount({ setAccount }) {
 
   return (
     <div
-      className={`flex flex-col gap-5 ${
-        isDayMode ? "text-black" : "text-white"
-      }  `}
+      className={`flex flex-col gap-8 items-center justify-center rounded-xl   p-8 max-w-md mx-auto mt-10 ${
+        isDayMode ? "  text-black" : "  text-white"
+      }`}
     >
-      <div className="flex gap-5 justify-center">
-        <div className="flex flex-col ">
-          <span className={`  mb-3 `}>Male</span>
-          <Avatar.Root className="bg-blackA1 inline-flex h-[45px] w-[45px] select-none items-center justify-center overflow-hidden rounded-full align-middle">
-            <Avatar.Image
-              onClick={() => setGender("male")}
-              className={`" h-full w-full rounded-[inherit] object-cover cursor-pointer "  ${
-                gender == "male"
-                  ? " shadow-lg border-2 border-teal-500  shadow-red-500 "
-                  : ""
-              }`}
-              src={maleRabit}
-              alt="Colm Tuite"
-            />
-            <Avatar.Fallback
-              className="text-violet11 leading-1 flex h-full w-full items-center justify-center bg-white text-[15px] font-medium"
-              delayMs={600}
-            >
-              CT
-            </Avatar.Fallback>
-          </Avatar.Root>
-        </div>
-        <div className="flex flex-col ">
-          <span className={`" mb-3 "  `}>Female</span>
-          <Avatar.Root className="bg-blackA1 inline-flex h-[45px] w-[45px] select-none items-center justify-center overflow-hidden rounded-full align-middle">
-            <Avatar.Image
-              onClick={() => setGender("female")}
-              className={`" cursor-pointer h-full w-full rounded-[inherit] object-cover "  ${
-                gender == "female"
-                  ? " shadow-lg border-2 border-teal-500  shadow-red-500 "
-                  : ""
-              }`}
-              src={femaleRabit}
-              alt="Pedro Duarte"
-            />
-            <Avatar.Fallback
-              className="text-violet11 leading-1 flex h-full w-full items-center justify-center bg-white text-[15px] font-medium"
-              delayMs={600}
-            >
-              JD
-            </Avatar.Fallback>
-          </Avatar.Root>
-        </div>
-      </div>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+      <div className="flex gap-8 justify-center"></div>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Username"
-          className={`"p-2 border border-gray-300  rounded-md"  ${
-            isDayMode ? "text-black" : "text-black"
-          }  `}
+          className={`p-3 rounded-full transition focus:outline-none ${
+            isDayMode
+              ? "bg-slate-100 text-black placeholder:text-gray-400"
+              : "bg-slate-900 text-white placeholder:text-gray-400"
+          }`}
         />
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-          className={`"p-2 border border-gray-300  rounded-md"  ${
-            isDayMode ? "text-red" : "text-black"
-          }  `}
+          className={`p-3 rounded-full transition focus:outline-none ${
+            isDayMode
+              ? "bg-slate-100 text-black placeholder:text-gray-400"
+              : "bg-slate-900 text-white placeholder:text-gray-400"
+          }`}
         />
         <button
           type="submit"
-          className="bg-teal-500  p-2 rounded-md hover:bg-teal-600"
+          className="bg-teal-500 p-3 rounded-full text-white font-semibold hover:bg-teal-600 transition"
         >
           Create Account
         </button>

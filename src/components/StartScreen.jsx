@@ -54,26 +54,20 @@ export default function StartScreen({}) {
   };
 
   return (
-    <div className="flex justify-center items-start min-h-screen p-3  ">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+    <div className="flex justify-center items-start min-h-screen p-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
         {questionTypes.map((type, index) => (
           <div
             onClick={() => handleStart(type.isProgramming, type.type)}
             key={index}
-            className={`rounded-lg  cursor-pointer  ${
+            className={`rounded-xl cursor-pointer shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center ${
               type.color
-            } shadow-md hover:shadow-lg 
-             ${
-               isDayMode
-                 ? "  shadow-gray-300 hover:shadow-gray-300"
-                 : "shadow-slate-600 hover:shadow-slate-600"
-             } 
-            flex flex-col items-center justify-center`}
+            } ${isDayMode ? "shadow-gray-300" : "shadow-slate-700"}`}
           >
             <img
               src={type.image}
               alt={type.type}
-              className="w-full h-48 mb-4"
+              className="w-full h-48 object-cover rounded-t-xl mb-4"
             />
             <h2
               className={`text-lg font-bold ${
@@ -82,10 +76,7 @@ export default function StartScreen({}) {
             >
               {type.type} Questions
             </h2>
-            <button
-              className="mt-3 px-4 py-2 mb-3 rounded-md bg-teal-500 text-white hover:bg-teal-600 transition-colors duration-300"
-              // onClick={() => handleStart(type.isProgramming, type.type)}
-            >
+            <button className="mt-3 px-6 py-2 mb-4 rounded-full bg-teal-500 text-white hover:bg-teal-600 transition-colors duration-300 font-semibold shadow">
               Start
             </button>
           </div>

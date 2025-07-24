@@ -138,14 +138,14 @@ export default function App() {
         <DayModeContext.Provider value={isDayMode}>
           <AccountContext.Provider value={account}>
             <div
-              className={`"w-screen min-h-screen grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3   text-white  " ${
-                isDayMode ? "bg-cyan-50" : "bg-slate-900"
+              className={`min-h-screen w-full grid grid-cols-1 md:grid-cols-3 bg-gradient-to-br ${
+                isDayMode
+                  ? "from-cyan-50 via-white to-cyan-100"
+                  : "from-slate-900 via-slate-800 to-slate-900"
               }`}
             >
               <NavBar toggleDayMode={toggleDayMode} />
-              <div
-                className={`col-span-3  place-self-center  min-h-max md:mt-28 mt-20 `}
-              >
+              <div className="col-span-3 flex flex-col items-center justify-center min-h-[80vh] py-10">
                 {tasks.status === "loading" && <Loader />}
                 {tasks.status === "error" && <Error />}
                 {tasks.status === "ready" &&

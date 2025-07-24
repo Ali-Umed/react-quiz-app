@@ -49,11 +49,5 @@ cd react-quiz-app
 
 # 2. Install dependencies
 npm install
-
-# 3. Add your API key
-# Get one from https://www.visualcrossing.com/
-# (Or use the one provided in the code – it's free to use)
-
-# 4. Start the development server
 npm start
 ```

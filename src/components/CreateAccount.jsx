@@ -6,19 +6,18 @@ import { DayModeContext } from "../context/TasksConteext";
 
 function CreateAccount({ setAccount }) {
   const [username, setUsername] = useState("");
-  const [gender, setGender] = useState("");
+
   const [password, setPassword] = useState("");
   const isDayMode = useContext(DayModeContext);
 
   const handleSubmit = async () => {
     event.preventDefault();
-    if (!username || !password || !gender) {
-      alert("Please enter both username and password and gender");
+    if (!username || !password) {
+      alert("Please enter both username and password ");
       return;
     }
     const account = {
       username: username,
-      gender: gender,
       password: password,
       isDayMode: isDayMode,
       coins: 0,

@@ -99,7 +99,7 @@ export default function App() {
   const [tasks, dispatch] = useReducer(reducer, initState);
 
   const [account, setAccount] = useState(null);
-  const [isDayMode, setIsDayMode] = useState(true);
+  const [isDayMode, setIsDayMode] = useState(false);
 
   const toggleDayMode = () => {
     setIsDayMode(!isDayMode);

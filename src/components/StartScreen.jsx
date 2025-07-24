@@ -56,7 +56,7 @@ export default function StartScreen({}) {
           <div
             onClick={() => handleStart(typeObj.type)}
             key={index}
-            className={`rounded-xl cursor-pointer shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center ${
+            className={`rounded-xl cursor-pointer shadow-sm hover:scale-105 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center ${
               typeObj.color
             } ${isDayMode ? "shadow-gray-300" : "shadow-slate-700"}`}
           >

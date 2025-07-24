@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import QuestionsDetail from "./QuestionsDetail.1";
 import { GoChevronRight } from "react-icons/go";
 import { BiAlarm } from "react-icons/bi";
 import { BiDollar } from "react-icons/bi";
@@ -9,6 +8,7 @@ import {
   TasksContext,
   TasksDispatchContext,
 } from "../context/TasksConteext";
+import QuestionsDetail from "./QuestionsDetail";
 
 export default function Questions() {
   const { sec_remaining, questions, answer, index, coins } =
@@ -20,11 +20,7 @@ export default function Questions() {
 
   return (
     <section className="max-w-xl w-full flex flex-col gap-4 justify-center items-center py-8">
-      <main
-        className={`p-4 rounded-xl shadow-lg w-full min-h-[450px] ${
-          isDayMode ? "bg-white" : "bg-slate-800"
-        }`}
-      >
+      <main className={`p-4 rounded-xl   w-full min-h-[450px]  `}>
         <QuestionsDetail />
       </main>
 

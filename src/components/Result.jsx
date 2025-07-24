@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import winner from "../../src/images/winner.png";
 import {
   DayModeContext,
   TasksContext,
@@ -17,11 +16,18 @@ export default function Result() {
         isDayMode ? "bg-white text-black" : "bg-slate-800 text-white"
       }`}
     >
-      <img src={winner} alt="" className="w-48 mb-6" />
-      <h1 className="text-2xl font-bold mb-2">Coins +{coins}</h1>
+      <div className="mb-6 flex flex-col items-center">
+        <span className="text-4xl font-extrabold mb-2">
+          🎉 Congratulations!
+        </span>
+        <span className="inline-block px-6 py-2 rounded-full bg-yellow-400 text-black font-bold text-xl shadow mt-2">
+          +{coins} Coins
+        </span>
+      </div>
+      <p className="text-lg mb-4">You finished the quiz. Great job!</p>
       <button
         onClick={() => dispatch({ type: "finish" })}
-        className="mt-6 px-6 py-2 rounded-full bg-teal-600 text-white font-semibold hover:bg-teal-500 transition"
+        className="mt-4 px-6 py-2 rounded-full bg-teal-600 text-white font-semibold hover:bg-teal-500 transition"
       >
         Exit
       </button>

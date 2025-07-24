@@ -32,7 +32,8 @@ function reducer(state, action) {
     case "dataReceived":
       return {
         ...state,
-        questions: randomQuestions(action.payload),
+        allQuestions: action.payload,
+        questions: [],
         status: "ready",
       };
     case "dataFailed":
@@ -41,10 +42,15 @@ function reducer(state, action) {
         status: "error",
       };
     case "start":
+      const filtered = state.allQuestions.filter(
+        (q) => q.type?.toLowerCase() === action.questionType.toLowerCase()
+      );
       return {
         ...state,
-        status: "active",
-        sec_remaining: state.questions.length * sec_per_questions,
+        questions: randomQuestions(filtered, Math.min(10, filtered.length)),
+        status: filtered.length ? "active" : "error",
+        sec_remaining: sec_per_questions * Math.min(10, filtered.length),
+        index: 0,
       };
     case "newAnswer":
       return {
@@ -80,16 +86,13 @@ function reducer(state, action) {
   }
 }
 
-function randomQuestions(questions) {
-  let newArray = questions.slice();
-
-  for (let i = newArray.length - 1; i > 0; i--) {
+function randomQuestions(questions, count = 10) {
+  const arr = questions.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    [arr[i], arr[j]] = [arr[j], arr[i]];
   }
-
-  return newArray.slice(0, 2);
+  return arr.slice(0, count);
 }
 
 export default function App() {

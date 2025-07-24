@@ -19,7 +19,7 @@ export default function StartScreen({}) {
       image: programmingImage,
     },
     {
-      type: "Sports",
+      type: "sports",
       // color: "bg-green-100",
       color: isDayMode ? "bg-[#fff]" : "bg-slate-800 ",
       isProgramming: false,
@@ -45,28 +45,24 @@ export default function StartScreen({}) {
     },
   ];
 
-  const handleStart = (isProgramming, type) => {
-    if (isProgramming) {
-      dispatch({ type: "start" });
-    } else {
-      alert(`No ${type} questions available!`);
-    }
+  const handleStart = (type) => {
+    dispatch({ type: "start", questionType: type });
   };
 
   return (
     <div className="flex justify-center items-start min-h-screen p-3">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-        {questionTypes.map((type, index) => (
+        {questionTypes.map((typeObj, index) => (
           <div
-            onClick={() => handleStart(type.isProgramming, type.type)}
+            onClick={() => handleStart(typeObj.type)}
             key={index}
             className={`rounded-xl cursor-pointer shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center ${
-              type.color
+              typeObj.color
             } ${isDayMode ? "shadow-gray-300" : "shadow-slate-700"}`}
           >
             <img
-              src={type.image}
-              alt={type.type}
+              src={typeObj.image}
+              alt={typeObj.type}
               className="w-full h-48 object-cover rounded-t-xl mb-4"
             />
             <h2
@@ -74,7 +70,7 @@ export default function StartScreen({}) {
                 isDayMode ? "text-black" : "text-white"
               }`}
             >
-              {type.type} Questions
+              {typeObj.type} Questions
             </h2>
             <button className="mt-3 px-6 py-2 mb-4 rounded-full bg-teal-500 text-white hover:bg-teal-600 transition-colors duration-300 font-semibold shadow">
               Start

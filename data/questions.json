@@ -1,184 +1,504 @@
 {
-    "questions": [
-        {
-            "question": "Which is the most popular JavaScript framework?",
-            "options": [
-                "Angular",
-                "React",
-                "Svelte",
-                "Vue"
-            ],
-            "correctOption": 1,
-            "points": 1,
-            "type": "programming"
-        },
-        {
-            "question": "Which company invented React?",
-            "options": [
-                "Google",
-                "Apple",
-                "Netflix",
-                "Facebook"
-            ],
-            "correctOption": 3,
-            "points": 1,
-            "type": "programming"
-        },
-        {
-            "question": "What's the fundamental building block of React apps?",
-            "options": [
-                "Components",
-                "Blocks",
-                "Elements",
-                "Effects"
-            ],
-            "correctOption": 0,
-            "points": 1,
-            "type": "programming"
-        },
-        {
-            "question": "What's the name of the syntax we use to describe the UI in React components?",
-            "options": [
-                "FBJ",
-                "Babel",
-                "JSX",
-                "ES2015"
-            ],
-            "correctOption": 2,
-            "points": 1,
-            "type": "programming"
-        },
-        {
-            "question": "How does data flow naturally in React apps?",
-            "options": [
-                "From parents to children",
-                "From children to parents",
-                "Both ways",
-                "The developers decides"
-            ],
-            "correctOption": 0,
-            "points": 1,
-            "type": "programming"
-        },
-        {
-            "question": "How to pass data into a child component?",
-            "options": [
-                "State",
-                "Props",
-                "PropTypes",
-                "Parameters"
-            ],
-            "correctOption": 1,
-            "points": 1,
-            "type": "programming"
-        },
-        {
-            "question": "When to use derived state?",
-            "options": [
-                "Whenever the state should not trigger a re-render",
-                "Whenever the state can be synchronized with an effect",
-                "Whenever the state should be accessible to all components",
-                "Whenever the state can be computed from another state variable"
-            ],
-            "correctOption": 3,
-            "points": 3,
-            "type": "programming"
-        },
-        {
-            "question": "What triggers a UI re-render in React?",
-            "options": [
-                "Running an effect",
-                "Passing props",
-                "Updating state",
-                "Adding event listeners to DOM elements"
-            ],
-            "correctOption": 2,
-            "points": 2,
-            "type": "programming"
-        },
-        {
-            "question": "When do we directly \"touch\" the DOM in React?",
-            "options": [
-                "When we need to listen to an event",
-                "When we need to change the UI",
-                "When we need to add styles",
-                "Almost never"
-            ],
-            "correctOption": 3,
-            "points": 2,
-            "type": "programming"
-        },
-        {
-            "question": "In what situation do we use a callback to update state?",
-            "options": [
-                "When updating the state will be slow",
-                "When the updated state is very data-intensive",
-                "When the state update should happen faster",
-                "When the new state depends on the previous state"
-            ],
-            "correctOption": 3,
-            "points": 3,
-            "type": "programming"
-        },
-        {
-            "question": "If we pass a function to useState, when will that function be called?",
-            "options": [
-                "On each re-render",
-                "Each time we update the state",
-                "Only on the initial render",
-                "The first time we update the state"
-            ],
-            "correctOption": 2,
-            "points": 3,
-            "type": "programming"
-        },
-        {
-            "question": "Which hook to use for an API request on the component's initial render?",
-            "options": [
-                "useState",
-                "useEffect",
-                "useRef",
-                "useReducer"
-            ],
-            "correctOption": 1,
-            "points": 1,
-            "type": "programming"
-        },
-        {
-            "question": "Which variables should go into the useEffect dependency array?",
-            "options": [
-                "Usually none",
-                "All our state variables",
-                "All state and props referenced in the effect",
-                "All variables needed for clean up"
-            ],
-            "correctOption": 2,
-            "points": 3,
-            "type": "programming"
-        },
-        {
-            "question": "An effect will always run on the initial render.",
-            "options": [
-                "True",
-                "It depends on the dependency array",
-                "False",
-                "In depends on the code in the effect"
-            ],
-            "correctOption": 0,
-            "points": 3,
-            "type": "programming"
-        },
-        {
-            "question": "When will an effect run if it doesn't have a dependency array?",
-            "options": [
-                "Only when the component mounts",
-                "Only when the component unmounts",
-                "The first time the component re-renders",
-                "Each time the component is re-rendered"
-            ],
-            "correctOption": 3,
-            "points": 2,
-            "type": "programming"
-        }
-    ]
+  "questions": [
+    {
+      "question": "Who won the FIFA World Cup in 2018?",
+      "options": ["Brazil", "Germany", "France", "Argentina"],
+      "correctOption": 2,
+      "points": 2,
+      "type": "sports"
+    },
+    {
+      "question": "Which country hosted the 2020 Summer Olympics?",
+      "options": ["China", "Japan", "Brazil", "UK"],
+      "correctOption": 1,
+      "points": 2,
+      "type": "sports"
+    },
+    {
+      "question": "Who holds the record for the most goals in a single World Cup?",
+      "options": ["Pele", "Ronaldo", "Miroslav Klose", "Just Fontaine"],
+      "correctOption": 3,
+      "points": 2,
+      "type": "sports"
+    },
+    {
+      "question": "How many players are there in a basketball team on the court?",
+      "options": ["5", "6", "7", "4"],
+      "correctOption": 0,
+      "points": 1,
+      "type": "sports"
+    },
+    {
+      "question": "In which sport would you perform a slam dunk?",
+      "options": ["Volleyball", "Basketball", "Tennis", "Football"],
+      "correctOption": 1,
+      "points": 1,
+      "type": "sports"
+    },
+    {
+      "question": "Who has won the most Grand Slam titles in tennis (men)?",
+      "options": [
+        "Novak Djokovic",
+        "Roger Federer",
+        "Rafael Nadal",
+        "Pete Sampras"
+      ],
+      "correctOption": 0,
+      "points": 3,
+      "type": "sports"
+    },
+    {
+      "question": "Which team has won the most UEFA Champions League titles?",
+      "options": ["Barcelona", "Bayern Munich", "Liverpool", "Real Madrid"],
+      "correctOption": 3,
+      "points": 2,
+      "type": "sports"
+    },
+    {
+      "question": "What is the maximum score in a single frame of snooker?",
+      "options": ["147", "155", "150", "140"],
+      "correctOption": 0,
+      "points": 2,
+      "type": "sports"
+    },
+    {
+      "question": "Which country is known as the birthplace of cricket?",
+      "options": ["India", "Australia", "South Africa", "England"],
+      "correctOption": 3,
+      "points": 1,
+      "type": "sports"
+    },
+    {
+      "question": "What color jersey is worn by the leader in the Tour de France?",
+      "options": ["Green", "Red", "Yellow", "White"],
+      "correctOption": 2,
+      "points": 2,
+      "type": "sports"
+    },
+    {
+      "question": "Who won the FIFA World Cup in 2018?",
+      "options": ["Brazil", "Germany", "France", "Argentina"],
+      "correctOption": 2,
+      "points": 2,
+      "type": "sports"
+    },
+    {
+      "question": "Which movie won the Oscar for Best Picture in 2020?",
+      "options": ["Joker", "1917", "Parasite", "Ford v Ferrari"],
+      "correctOption": 2,
+      "points": 2,
+      "type": "movies"
+    },
+    {
+      "question": "Who was the first President of the United States?",
+      "options": [
+        "Abraham Lincoln",
+        "George Washington",
+        "John Adams",
+        "Thomas Jefferson"
+      ],
+      "correctOption": 1,
+      "points": 1,
+      "type": "history"
+    },
+    {
+      "question": "What is the capital city of Japan?",
+      "options": ["Kyoto", "Osaka", "Tokyo", "Nagoya"],
+      "correctOption": 2,
+      "points": 1,
+      "type": "geography"
+    },
+    {
+      "question": "Which planet is known as the Red Planet?",
+      "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+      "correctOption": 1,
+      "points": 1,
+      "type": "science"
+    },
+    {
+      "question": "Which is the most popular JavaScript framework?",
+      "options": ["Angular", "React", "Svelte", "Vue"],
+      "correctOption": 1,
+      "points": 1,
+      "type": "programming"
+    },
+    {
+      "question": "Which company invented React?",
+      "options": ["Google", "Apple", "Netflix", "Facebook"],
+      "correctOption": 3,
+      "points": 1,
+      "type": "programming"
+    },
+    {
+      "question": "What's the fundamental building block of React apps?",
+      "options": ["Components", "Blocks", "Elements", "Effects"],
+      "correctOption": 0,
+      "points": 1,
+      "type": "programming"
+    },
+    {
+      "question": "What's the name of the syntax we use to describe the UI in React components?",
+      "options": ["FBJ", "Babel", "JSX", "ES2015"],
+      "correctOption": 2,
+      "points": 1,
+      "type": "programming"
+    },
+    {
+      "question": "How does data flow naturally in React apps?",
+      "options": [
+        "From parents to children",
+        "From children to parents",
+        "Both ways",
+        "The developers decides"
+      ],
+      "correctOption": 0,
+      "points": 1,
+      "type": "programming"
+    },
+    {
+      "question": "How to pass data into a child component?",
+      "options": ["State", "Props", "PropTypes", "Parameters"],
+      "correctOption": 1,
+      "points": 1,
+      "type": "programming"
+    },
+    {
+      "question": "When to use derived state?",
+      "options": [
+        "Whenever the state should not trigger a re-render",
+        "Whenever the state can be synchronized with an effect",
+        "Whenever the state should be accessible to all components",
+        "Whenever the state can be computed from another state variable"
+      ],
+      "correctOption": 3,
+      "points": 3,
+      "type": "programming"
+    },
+    {
+      "question": "What triggers a UI re-render in React?",
+      "options": [
+        "Running an effect",
+        "Passing props",
+        "Updating state",
+        "Adding event listeners to DOM elements"
+      ],
+      "correctOption": 2,
+      "points": 2,
+      "type": "programming"
+    },
+    {
+      "question": "When do we directly \"touch\" the DOM in React?",
+      "options": [
+        "When we need to listen to an event",
+        "When we need to change the UI",
+        "When we need to add styles",
+        "Almost never"
+      ],
+      "correctOption": 3,
+      "points": 2,
+      "type": "programming"
+    },
+    {
+      "question": "In what situation do we use a callback to update state?",
+      "options": [
+        "When updating the state will be slow",
+        "When the updated state is very data-intensive",
+        "When the state update should happen faster",
+        "When the new state depends on the previous state"
+      ],
+      "correctOption": 3,
+      "points": 3,
+      "type": "programming"
+    },
+    {
+      "question": "If we pass a function to useState, when will that function be called?",
+      "options": [
+        "On each re-render",
+        "Each time we update the state",
+        "Only on the initial render",
+        "The first time we update the state"
+      ],
+      "correctOption": 2,
+      "points": 3,
+      "type": "programming"
+    },
+    {
+      "question": "Which hook to use for an API request on the component's initial render?",
+      "options": ["useState", "useEffect", "useRef", "useReducer"],
+      "correctOption": 1,
+      "points": 1,
+      "type": "programming"
+    },
+    {
+      "question": "Which variables should go into the useEffect dependency array?",
+      "options": [
+        "Usually none",
+        "All our state variables",
+        "All state and props referenced in the effect",
+        "All variables needed for clean up"
+      ],
+      "correctOption": 2,
+      "points": 3,
+      "type": "programming"
+    },
+    {
+      "question": "An effect will always run on the initial render.",
+      "options": [
+        "True",
+        "It depends on the dependency array",
+        "False",
+        "In depends on the code in the effect"
+      ],
+      "correctOption": 0,
+      "points": 3,
+      "type": "programming"
+    },
+    {
+      "question": "When will an effect run if it doesn't have a dependency array?",
+      "options": [
+        "Only when the component mounts",
+        "Only when the component unmounts",
+        "The first time the component re-renders",
+        "Each time the component is re-rendered"
+      ],
+      "correctOption": 3,
+      "points": 2,
+      "type": "programming"
+    },
+    {
+      "question": "What is the longest river in the world?",
+      "options": ["Amazon", "Nile", "Yangtze", "Mississippi"],
+      "correctOption": 1,
+      "points": 2,
+      "type": "geography"
+    },
+    {
+      "question": "Which country has the largest population?",
+      "options": ["India", "USA", "China", "Indonesia"],
+      "correctOption": 2,
+      "points": 1,
+      "type": "geography"
+    },
+    {
+      "question": "Mount Everest is located in which mountain range?",
+      "options": ["Andes", "Rockies", "Alps", "Himalayas"],
+      "correctOption": 3,
+      "points": 2,
+      "type": "geography"
+    },
+    {
+      "question": "What is the capital city of Australia?",
+      "options": ["Sydney", "Melbourne", "Canberra", "Perth"],
+      "correctOption": 2,
+      "points": 1,
+      "type": "geography"
+    },
+    {
+      "question": "Which ocean is the largest?",
+      "options": ["Atlantic", "Pacific", "Indian", "Arctic"],
+      "correctOption": 1,
+      "points": 1,
+      "type": "geography"
+    },
+    {
+      "question": "The Sahara Desert is located on which continent?",
+      "options": ["Asia", "Africa", "Australia", "South America"],
+      "correctOption": 1,
+      "points": 1,
+      "type": "geography"
+    },
+    {
+      "question": "What is the capital of Canada?",
+      "options": ["Toronto", "Ottawa", "Vancouver", "Montreal"],
+      "correctOption": 1,
+      "points": 1,
+      "type": "geography"
+    },
+    {
+      "question": "Which continent has the most countries?",
+      "options": ["Asia", "Africa", "Europe", "South America"],
+      "correctOption": 1,
+      "points": 2,
+      "type": "geography"
+    },
+    {
+      "question": "What is the smallest country in the world?",
+      "options": ["Malta", "Monaco", "Vatican City", "San Marino"],
+      "correctOption": 2,
+      "points": 2,
+      "type": "geography"
+    },
+    {
+      "question": "Which U.S. state has the most volcanoes?",
+      "options": ["California", "Alaska", "Hawaii", "Oregon"],
+      "correctOption": 1,
+      "points": 2,
+      "type": "geography"
+    },
+    {
+      "question": "What is 12 × 8?",
+      "options": ["96", "84", "88", "108"],
+      "correctOption": 0,
+      "points": 1,
+      "type": "math"
+    },
+    {
+      "question": "What is the square root of 144?",
+      "options": ["12", "14", "16", "10"],
+      "correctOption": 0,
+      "points": 1,
+      "type": "math"
+    },
+    {
+      "question": "What is the value of π (pi) approximately?",
+      "options": ["3.14", "3.41", "2.71", "1.61"],
+      "correctOption": 0,
+      "points": 1,
+      "type": "math"
+    },
+    {
+      "question": "How many degrees are there in a right angle?",
+      "options": ["90", "180", "60", "45"],
+      "correctOption": 0,
+      "points": 1,
+      "type": "math"
+    },
+    {
+      "question": "What is 7²?",
+      "options": ["49", "42", "56", "64"],
+      "correctOption": 0,
+      "points": 1,
+      "type": "math"
+    },
+    {
+      "question": "Solve: 15 + 6 × 2",
+      "options": ["42", "27", "36", "24"],
+      "correctOption": 1,
+      "points": 2,
+      "type": "math"
+    },
+    {
+      "question": "What is 100 divided by 4?",
+      "options": ["20", "25", "30", "40"],
+      "correctOption": 1,
+      "points": 1,
+      "type": "math"
+    },
+    {
+      "question": "What is the perimeter of a square with side length 5?",
+      "options": ["20", "25", "10", "15"],
+      "correctOption": 0,
+      "points": 1,
+      "type": "math"
+    },
+    {
+      "question": "What is the area of a triangle with base 10 and height 6?",
+      "options": ["30", "60", "36", "40"],
+      "correctOption": 0,
+      "points": 2,
+      "type": "math"
+    },
+    {
+      "question": "What is 5 factorial (5!)?",
+      "options": ["120", "60", "100", "240"],
+      "correctOption": 0,
+      "points": 2,
+      "type": "math"
+    },
+    {
+      "question": "Who was the first President of the United States?",
+      "options": [
+        "Abraham Lincoln",
+        "George Washington",
+        "John Adams",
+        "Thomas Jefferson"
+      ],
+      "correctOption": 1,
+      "points": 1,
+      "type": "history"
+    },
+    {
+      "question": "In which year did World War II end?",
+      "options": ["1940", "1945", "1939", "1950"],
+      "correctOption": 1,
+      "points": 1,
+      "type": "history"
+    },
+    {
+      "question": "Which ancient civilization built the pyramids?",
+      "options": ["Romans", "Aztecs", "Egyptians", "Greeks"],
+      "correctOption": 2,
+      "points": 1,
+      "type": "history"
+    },
+    {
+      "question": "Who discovered America in 1492?",
+      "options": [
+        "Leif Erikson",
+        "Christopher Columbus",
+        "Vasco da Gama",
+        "James Cook"
+      ],
+      "correctOption": 1,
+      "points": 1,
+      "type": "history"
+    },
+    {
+      "question": "What wall came down in 1989?",
+      "options": [
+        "Berlin Wall",
+        "Great Wall",
+        "Hadrian's Wall",
+        "Iron Curtain"
+      ],
+      "correctOption": 0,
+      "points": 2,
+      "type": "history"
+    },
+    {
+      "question": "Who was the famous nurse during the Crimean War?",
+      "options": [
+        "Clara Barton",
+        "Florence Nightingale",
+        "Marie Curie",
+        "Joan of Arc"
+      ],
+      "correctOption": 1,
+      "points": 2,
+      "type": "history"
+    },
+    {
+      "question": "What ship sank in 1912 on its maiden voyage?",
+      "options": ["Britannic", "Titanic", "Lusitania", "Endeavour"],
+      "correctOption": 1,
+      "points": 1,
+      "type": "history"
+    },
+    {
+      "question": "Who was the leader of Nazi Germany during WWII?",
+      "options": ["Stalin", "Hitler", "Mussolini", "Churchill"],
+      "correctOption": 1,
+      "points": 1,
+      "type": "history"
+    },
+    {
+      "question": "The Cold War was primarily between which two countries?",
+      "options": [
+        "USA and China",
+        "USA and Germany",
+        "USA and USSR",
+        "USA and Japan"
+      ],
+      "correctOption": 2,
+      "points": 2,
+      "type": "history"
+    },
+    {
+      "question": "When did the French Revolution begin?",
+      "options": ["1789", "1776", "1804", "1812"],
+      "correctOption": 0,
+      "points": 2,
+      "type": "history"
+    }
+  ]
 }

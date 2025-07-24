@@ -1,11 +1,3 @@
----
-title: React Quiz App
-published: 2022-07-01
-tags: [React, Quiz, Tailwind, Vite]
-category: Projects
-draft: false
----
-
 # 🎉 React Quiz App
 
 A modern, mobile-friendly quiz application built with **React**, **Vite**, and **Tailwind CSS**.  
